@@ -16,6 +16,7 @@
 # Perception
 
 - [Overview](perception/overview.md)
+- [Architectures](perception/architectures.md)
 - [RADAR](perception/radar.md)
 - [LIDAR](perception/lidar.md)
 - [Sensor Fusion](perception/sensor_fusion.md)
