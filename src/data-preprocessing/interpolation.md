@@ -10,6 +10,12 @@ Usually, the list is sorted by \\( x_i \\) in ascending manner.
 
 ![interpolation](interpolation.svg)
 
+<figcaption><center>
+
+**Figure 1**: Interpolation problem visualized.
+
+</center></figcaption>
+
 In case we are interested in values of \\( x < x_0 \\) or \\( x > x_{N-1} \\) we talk about *extrapolation*.
 
 Note, that the argument \\( x \\) can also be time \\( t \\), in that case we speak about temporal interpolation. Additionally, in this overview we mainly look at the one-dimensional (1D) case, more details on more dimensions can be found in the section below.
@@ -29,6 +35,12 @@ The proximity can be defined based on the numerical distance to the sample point
 The algorithms in the proximity based method family select the value of the nearest point and does not consider the values of neighbouring points at all
 
 ![interpolation_methods](interpolation_methods.svg)
+
+<figcaption><center>
+
+**Figure 2**: Proximity based interpolation methods. Altered version of [^interpolation_methods_image] 
+
+</center></figcaption>
 
 #### Nearest-Neighbour
 
@@ -53,6 +65,12 @@ f(x) = ax +b = \frac{f_{i+1}- f_{i}}{x_{i+1}- xf_{i}} + f_{i} \ \forall x \in [x
 Global methods take into account more than two points around the value of interest \\( x_* \\). Some methods even take into account all available points.
 
 ![global_interpolation](global_interpolation.svg)
+
+<figcaption><center>
+
+**Figure 3**: Global interpolation methods. Images taken from Wikipedia.
+
+</center></figcaption>
 
 #### Polynomial
 
@@ -85,9 +103,11 @@ WIP
 
 ## Implementation
 
-TODO
+WIP
 
 ## References
+
+[^interpolation_methods_image] By Cmglee - Own work, CC BY-SA 4.0, [link](https://commons.wikimedia.org/w/index.php?curid=53064904)
 
 [^spline] [Wikipedia: Spline Interpolation](https://en.wikipedia.org/wiki/Spline_interpolation#Introduction)
 
