@@ -52,40 +52,76 @@ Let's take a deeper look at mathematical recipes describing the geometrical rela
 
 ### Transformation matrices
 
-A transformation between two coordinate systems \\(c_1, c_2\\) can be represented as a matrix in homogenous coordinates:
+A transformation between two coordinate systems \\(A, B\\) can be represented as a matrix in homogenous coordinates:
 
 \\[
 \begin{bmatrix}
-x_* \\\\
-y_* \\\\
+{}^{A} \vec x \\\\
 1
-\end{bmatrix} = \mathbf T_{c_1 \rightarrow c_2} \mathbf x =
+\end{bmatrix}  =
 \begin{bmatrix}
-\mathbf R & \mathbf d \\\\
+\mathbf {}^{A}_B R & \mathbf {}^{A}t_B \\\\
 0 & 1
 \end{bmatrix} \begin{bmatrix}
-x \\\\
-y \\\\
+{}^{B} \vec x \\\\
+1
+\end{bmatrix} = {}^{A}_B \mathbf T \\ \begin{bmatrix}
+{}^{B} \vec x \\\\
 1
 \end{bmatrix}
 \\]
 
-The matrix rotations allows an efficient implementation of transformation between coordinate frames. Moreover, we can combine multiple transformations into one:
-
 \\[
-\mathbf T_{w \rightarrow s} = \mathbf T_{v \rightarrow s} \mathbf T_{w \rightarrow v}
+\begin{bmatrix}
+{}^{A} \vec x \\\\
+1
+\end{bmatrix} = \mathbf T_{B \rightarrow A} \\ \begin{bmatrix}
+{}^{B} \vec x \\\\
+1
+\end{bmatrix}
 \\]
 
-This allows us to transform between world and sensor coordinate system with a single matrix \\(\mathbf T_{w \rightarrow s}\\).
+The matrix rotations allows an efficient implementation of transformation between coordinate frames. Moreover, we can combine multiple transformations into one (Eq. 2.40 from [^robotics_book]):
+
+\\[
+\mathbf T_{C \rightarrow A} = \mathbf T_{B \rightarrow A} \mathbf T_{C \rightarrow B} 
+\\]
+
+This allows us to transform between world and sensor coordinate system with a single matrix \\(\mathbf T_{A \rightarrow C}\\).
 
 The rotation matrix R can also represented as a *quaternion*. A quaternion is one of several mathematical ways to represent the orientation and rotation of an object in two or three dimensions. Quaternions are often used instead of Euler angle rotation matrices because compared to rotation matrices they are more compact, more numerically stable, and more efficient.[^quaternions_rotations]
+
+### Defining transformations from real hardware
+
+
+
 
 ### Transformations in ROS
 
 http://wiki.ros.org/tf/Overview/Transformations
 
+Given a unit quarternion \\( [q_i, q_j, q_k, w]\\) we can compute the rotation matrix
+
+\\[
+\mathbf{R} = 
+\begin{bmatrix}
+1 - 2s (q_j^2 + q_k^2) &
+2 (q_i q_j + q_k q_r) &
+2 (q_i q_k - q_j q_r) \\\\
+2 (q_i q_j - q_k q_r) &
+1 - 2s (q_i^2 + q_k^2) &
+2 (q_j q_k + q_i q_r) \\\\
+2 (q_i q_k + q_j q_r) &
+2 (q_j q_k - q_i q_r) &
+1 - 2s (q_i^2 + q_j^2)
+\end{bmatrix} 
+\\]
+
+This computation is implemented in [SciPy](https://docs.scipy.org/doc/scipy/reference/generated/scipy.spatial.transform.Rotation.from_quat.html#scipy.spatial.transform.Rotation.from_quat).
+
 WIP
 
+http://mathdep.ifmo.ru/wp-content/uploads/2018/10/John-J.Craig-Introduction-to-Robotics-Mechanics-and-Control-3rd-edition-Pearson-Education-Inc.-2005.pdf
 
 ## Transformations and Time 
 
@@ -97,4 +133,7 @@ WIP
 
 [^tf_paper] [ROS: *tf* library](http://wiki.ros.org/tf)
 
+[^robotics_book] John Craig, *Introduction to Robotics* (1989)
+
 [^quaternions_rotations] [Wikipedia: Quaternions and spatial rotation](https://en.wikipedia.org/wiki/Quaternions_and_spatial_rotation)
+
