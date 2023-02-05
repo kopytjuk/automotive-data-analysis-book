@@ -50,7 +50,7 @@ Note that the structure of this graph remains same over time, even if the mathem
 
 Let's take a deeper look at mathematical recipes describing the geometrical relation between a single pair of coordinate systems.
 
-### Transformation matrices
+### Transformation operation
 
 A transformation between two coordinate systems \\(A, B\\) can be represented as a matrix in homogenous coordinates:
 
@@ -60,7 +60,7 @@ A transformation between two coordinate systems \\(A, B\\) can be represented as
 1
 \end{bmatrix}  =
 \begin{bmatrix}
-\mathbf {}^{A}_B R & \mathbf {}^{A}t_B \\\\
+{}^{A}_B R & {}^{A}t_B \\\\
 0 & 1
 \end{bmatrix} \begin{bmatrix}
 {}^{B} \vec x \\\\
@@ -81,26 +81,101 @@ A transformation between two coordinate systems \\(A, B\\) can be represented as
 \end{bmatrix}
 \\]
 
-The matrix rotations allows an efficient implementation of transformation between coordinate frames. Moreover, we can combine multiple transformations into one (Eq. 2.40 from [^robotics_book]):
+Note, that the equation above transforms a single point in \\( B\\)s coord. system to \\( A\\), i.e. \\( {}^{B} \vec x \rightarrow {}^{A} \vec x\\).
+
+The matrix notation allows an computationally efficient transformation between coordinate frames. Moreover, we can combine multiple transformations into one matrix (Eq. 2.40 from [^robotics_book]):
 
 \\[
 \mathbf T_{C \rightarrow A} = \mathbf T_{B \rightarrow A} \mathbf T_{C \rightarrow B} 
 \\]
 
-This allows us to transform between world and sensor coordinate system with a single matrix \\(\mathbf T_{A \rightarrow C}\\).
+Applied to the example from Fig. 1 this formulation allows us to transform between *world* and *sensor* coordinate system with a single operation \\(\mathbf T_{world \rightarrow sensor}\\).
 
-The rotation matrix R can also represented as a *quaternion*. A quaternion is one of several mathematical ways to represent the orientation and rotation of an object in two or three dimensions. Quaternions are often used instead of Euler angle rotation matrices because compared to rotation matrices they are more compact, more numerically stable, and more efficient.[^quaternions_rotations]
+### Reverse transformation
 
-### Defining transformations from real hardware
+The reverse transformation, i.e. from \\( {}^{A} \vec x \rightarrow {}^{B} \vec x\\) can be achieved by constructing a reverse transformation matrix \\( {}^{A}_B T^{-1}\\) (Eq. 2.45 from [^robotics_book]):
 
+\\[
+\begin{bmatrix}
+{}^{B} \vec x \\\\
+1
+\end{bmatrix}  = {}^{A}_B T^{-1} \begin{bmatrix}
+{}^{A} \vec x \\\\
+1
+\end{bmatrix} =
+\begin{bmatrix}
+{}^{A}_B R^T & -{}^{A}_B R^T {}^{A}t_B \\\\
+\mathbf 0 & 1
+\end{bmatrix} \begin{bmatrix}
+{}^{A} \vec x \\\\
+1
+\end{bmatrix} = {}^{B}_A \mathbf T \\ \begin{bmatrix}
+{}^{A} \vec x \\\\
+1
+\end{bmatrix}
+\\]
 
+Note that the equation above is computationally more efficient than computing an inverse directly.
 
+### Structure of the transformation matrix
 
-### Transformations in ROS
+The transformation matrix \\( {}^{A}_B T\\) has two components:
 
-http://wiki.ros.org/tf/Overview/Transformations
+- a 3x1 displacement vector \\( {}^{A}t_B \\), which describes the translation of \\(B\\)'s origin in the \\(A\\) system. 
+  For a sensor mounted at the front center of a 5m long vehicle, the displacement vector to the center of the veicle would be similar to \\( [2.5, 0, 0]^T\\).
+- a 3x3 rotation matrix \\({}^{A}_B R\\), which describes the rotation of the axes of coordinate system \\(B\\) in the \\(A\\).
+  I.e. the columns are formed from the three unit vectors of B's axes in A: \\({}^{A}\vec X_B\\), \\({}^{A}\vec Y_B\\), and \\({}^{A}\vec Z_B\\).[^ros_transform]
 
-Given a unit quarternion \\( [q_i, q_j, q_k, w]\\) we can compute the rotation matrix
+Let's try to visualize both:
+
+![transform-matrix-example](./transform-matrix-example.png)
+
+<figcaption><center>
+
+**Figure 3**: Transformation matrix from displacement vector and rotation. The system B is rotated 45° around the z-axis.
+
+</center></figcaption>
+
+The displacement vector is a 3 dimensional vector between the two coordinate system origins. 
+The rotation matrix however, is slightly more complex.
+As stated above, the columns of the rotation matrix are the axes of the new system B as vectors in A.
+Since the system B is rotated around the z-axis, it remains constant, i.e. \\({}^{A}\vec Z_B = [0, 0, 1]^T\\):
+
+\\[
+{}^{A}_B R =
+\begin{bmatrix}
+{}^{A}\vec X_B & {}^{A}\vec Y_B & {}^{A}\vec Z_B
+\end{bmatrix}
+= \begin{bmatrix}
+\cos(\alpha) & -\sin(\alpha) & 0 \\\\
+\sin(\alpha) & \cos(\alpha) & 0 \\\\
+0 & 0 & 1
+\end{bmatrix}
+\\]
+
+### Rotation and quaternions
+
+The rotation matrix \\(R\\) can also represented as a *quaternion*. 
+A quaternion is one of several mathematical ways to represent the orientation and rotation of an object in three dimensions. 
+Quaternions are often used instead of Euler angle rotation matrices because compared to rotation matrices they are more compact, 
+more numerically stable, and more efficient.[^quaternions_rotations]
+
+Broadly speaking a unit quaternion \\(\mathbf q\\) holds the information about the rotation axis and 
+the rotation angle \\(\alpha\\) (counter-clockwise) a point has to be rotated with:
+
+\\[
+\mathbf q =  sin(\frac \alpha 2) (a_x i + a_y j + a_z k) + cos(\frac \alpha 2) \\\\
+q_i = sin(\frac \alpha 2) a_x i \\\\
+q_j = sin(\frac \alpha 2) a_y j \\\\
+q_k = sin(\frac \alpha 2) a_z k \\\\
+w = cos(\frac \alpha 2)
+\\]
+
+The coefficients \\(a_x, a_y, a_z\\) define the orientation of the rotation axis in the coordinates of the parent system \\(A\\). 
+A rotation around the z-axis (as in Fig. 3) would lead to a rotation axis \\(a_x = 0, a_y = 0, a_z = 1\\).
+With a rotation angle \\( \alpha\\) we can compute the quaternion \\( [q_i, q_j, q_k, w]\\).
+
+Given a unit quaternion \\( [q_i, q_j, q_k, w]\\) we can construct the rotation matrix
 
 \\[
 \mathbf{R} = 
@@ -119,13 +194,33 @@ Given a unit quarternion \\( [q_i, q_j, q_k, w]\\) we can compute the rotation m
 
 This computation is implemented in [SciPy](https://docs.scipy.org/doc/scipy/reference/generated/scipy.spatial.transform.Rotation.from_quat.html#scipy.spatial.transform.Rotation.from_quat).
 
-WIP
+## Transformations in ROS
 
-http://mathdep.ifmo.ru/wp-content/uploads/2018/10/John-J.Craig-Introduction-to-Robotics-Mechanics-and-Control-3rd-edition-Pearson-Education-Inc.-2005.pdf
+Transformations in ROS are transmitted via the TransformStamped message type:
 
-## Transformations and Time 
+```
+Header header
+- uint32 seq
+- time stamp
+- string frame_id  # parent frame (A)
 
-Interpolating between frames in time
+string child_frame_id # child frame (B)
+
+Transform transform
+    - geometry_msgs/Vector3 translation  # displacement vector A -> B
+        - float64 x
+        - float64 y
+        - float64 z
+    - geometry_msgs/Quaternion rotation  # rotation matrix as quaternion
+        - float64 x
+        - float64 y
+        - float64 z
+        - float64 w
+```
+
+Note that the `translation` and `rotation` attribute hold \\( {}^{A}t_B \\) and \\( {}^{A}_B R \\) respectively. The `frame_id` refers to coordinate system \\( A \\) and `child_frame_id` to \\( B \\).
+
+## Transformations and time
 
 WIP
 
@@ -135,5 +230,8 @@ WIP
 
 [^robotics_book] John Craig, *Introduction to Robotics* (1989)
 
-[^quaternions_rotations] [Wikipedia: Quaternions and spatial rotation](https://en.wikipedia.org/wiki/Quaternions_and_spatial_rotation)
+[^quaternions_rotations] Wikipedia: Quaternions and spatial rotation ([source](https://en.wikipedia.org/wiki/Quaternions_and_spatial_rotation))
 
+[^ros_transform] ROS Overview - Transformations ([source](http://wiki.ros.org/tf/Overview/Transformations))
+
+[^ros_transform_stamped] `geometry_msgs/TransformStamped` Message [docs](http://docs.ros.org/en/melodic/api/geometry_msgs/html/msg/TransformStamped.html)
