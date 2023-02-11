@@ -4,6 +4,10 @@
 
 - [What is this book about?](./introduction/what_is_this_book_about.md)
 
+# Fundamentals
+
+- [Coordinate systems](./fundamentals/coordinate_systems.md)
+
 # Data Handling
 
 - [Interpolation](./data-preprocessing/interpolation.md)
