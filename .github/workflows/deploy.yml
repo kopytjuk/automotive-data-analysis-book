@@ -23,7 +23,7 @@ jobs:
         mdbook build
         git worktree add gh-pages
         git config user.name github-actions
-          git config user.email github-actions@github.com
+        git config user.email github-actions@github.com
         cd gh-pages
         # Delete the ref to avoid keeping history.
         git update-ref -d refs/heads/gh-pages
