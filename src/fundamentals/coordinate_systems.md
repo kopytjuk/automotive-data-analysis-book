@@ -22,7 +22,7 @@ In 2-D system, the position of x and y is fixed for many people, where the y axi
 
 </center></figcaption>
 
-For **right-handed** coordinates, the right thumb points along the z-axis in the positive direction and the curling motion of the fingers of the right hand represents a motion from the first or x-axis to the second or y-axis. When viewed from the top or z-axis the system is counter-clockwise.[^wiki_right_hand_rule] Robotic applications and frameworks such as ROS, use the right hand-rule.
+For **right-handed** coordinates, the right thumb points along the z-axis in the positive direction and the curling motion of the fingers of the right hand represents a motion from the first or x-axis to the second or y-axis. When viewed from the top or z-axis the system is counter-clockwise.[^wiki_right_hand_rule] Robotic applications and frameworks such as ROS, use the right hand-rule, see [^ros_rep103].
 
 For left-handed coordinates, the left thumb points along the z-axis in the positive direction and the curling motion of the fingers of the left hand represent a motion from the first or x-axis to the second or y-axis. When viewed from the top or z-axis the system is clockwise.[^wiki_right_hand_rule]
 
@@ -30,8 +30,39 @@ For left-handed coordinates, the left thumb points along the z-axis in the posit
 
 Spherical coordinate system is used across a a wide palette of applications, besides astronomy and geo-informatics, it is essential for automotive applications, too. A RADAR or LIDAR sensor output their readings by providing the range, azimuth- and elevation-angle to the object of the detection. This section provides a short overview over notation, characteristics and commonly used coordinate transformations.
 
-... WIP
+A spherical coordinate system (Fig. 2) is defined over the radial distance \\( r \\), azimuth angle \\( \varphi \\) and inclination angle \\( \theta \\):
 
+<p align="center">
+  <img src="Kugelkoord-def.svg" />
+</p>
+
+<figcaption><center>
+
+**Figure 2**: Right-handed cartesian and spherical coordinate system in ISO 80000-2:2019 convention.  [Image from Wikipedia](https://de.wikipedia.org/wiki/Kugelkoordinaten#/media/Datei:Kugelkoord-def.svg), extended with \\( \varepsilon \\) elevation angle.
+
+</center></figcaption>
+
+The angle the  \\( \varepsilon = \frac \pi 2 - \theta \\) is often used instead of \\( \theta \\) for data coming from RADAR or LIDAR sensors. When referring to field of view of a sensor, a horizontal range refers to the extent of \\( \varphi \\) and vertical to \\( \varepsilon \\).
+
+### Transformation to Cartesian
+
+The spherical coordinates of a point in the ISO convention (i.e. for physics: radius r, inclination θ, azimuth φ) can be obtained from its Cartesian coordinates (x, y, z) by the formulae[^wiki_spher_system]:
+
+\\[
+r = \sqrt{x^2 + y^2 + z^2} \\\\
+\theta = \arccos\frac{z}{\sqrt{x^2 + y^2 + z^2}} \\\\
+\varphi = sgn(y)\arccos\frac{x}{\sqrt{x^2+y^2}}
+\\]
+
+The sign function \\( sgn(x) \\) returns 1 for positive numbers \\( x > 0\\), 0 for \\( x = 0\\) and -1 for negative \\( x < 0\\).[^wiki_sign_function]
+
+Conversely, the Cartesian coordinates may be retrieved from the spherical coordinates by[^wiki_spher_system]:
+
+\\[
+x = r \sin\theta \\, \cos\varphi \\\\
+y = r \sin\theta \\, \sin\varphi \\\\
+z = r \cos\theta
+\\]
 
 ## References
 
@@ -41,3 +72,6 @@ Spherical coordinate system is used across a a wide palette of applications, bes
 
 [^ros_rep103] ROS REP103 - Standard Units of Measure and Coordinate Conventions, [link](https://www.ros.org/reps/rep-0103.html#coordinate-frame-conventions)
 
+[^wiki_spher_system] Wikipedia - Spherical coordinate system, [link](https://en.wikipedia.org/wiki/Spherical_coordinate_system#Cartesian_coordinates)
+
+[^wiki_sign_function] Wikipedia - Sign function, [link](https://en.wikipedia.org/wiki/Sign_function)
