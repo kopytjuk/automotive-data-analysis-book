@@ -218,7 +218,25 @@ Transform transform
         - float64 w
 ```
 
-Note that the `translation` and `rotation` attribute hold \\( {}^{A}t_B \\) and \\( {}^{A}_B R \\) respectively. The `frame_id` refers to coordinate system \\( A \\) and `child_frame_id` to \\( B \\).
+Note that the `translation` and `rotation` attribute hold \\( {}^{A}t_B \\) and \\( {}^{A}_B R \\) respectively. 
+The `frame_id` refers to coordinate system \\( A \\) and `child_frame_id` to \\( B \\).
+
+## Transformation of multiple points
+
+For data processing in Python, vectorized operations (e.g. in `numpy` ) are often faster than looping over a list of points and apply the transformation equation repeatedly.[^real_python_numpy_programming]
+
+The transformation equation can be extended to deal with a list of multiple points. This is particularly helpful for transforming geometric objects, 
+such as line-strings, bounding boxes or polygons, which are defined as an ordered list of points.:
+
+\\[
+\begin{bmatrix}
+{}^{A} \vec x & \dots & {}^{A} \vec x_N \\\\
+1 & \dots & 1
+\end{bmatrix} = \mathbf T_{B \rightarrow A} \\ \begin{bmatrix}
+{}^{B} \vec x_1 & \dots & {}^{B} \vec x_N \\\\
+1 & \dots & 1
+\end{bmatrix}
+\\]
 
 ## Transformations and time
 
@@ -235,3 +253,5 @@ WIP
 [^ros_transform] ROS Overview - Transformations ([source](http://wiki.ros.org/tf/Overview/Transformations))
 
 [^ros_transform_stamped] `geometry_msgs/TransformStamped` Message [docs](http://docs.ros.org/en/melodic/api/geometry_msgs/html/msg/TransformStamped.html)
+
+[^real_python_numpy_programming] Real Python - *Look Ma, No For-Loops: Array Programming With NumPy*, [link](https://realpython.com/numpy-array-programming/#what-is-vectorization)
