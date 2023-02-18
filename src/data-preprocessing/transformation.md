@@ -174,6 +174,7 @@ w = cos(\frac \alpha 2)
 The coefficients \\(a_x, a_y, a_z\\) define the orientation of the rotation axis in the coordinates of the parent system \\(A\\). 
 A rotation around the z-axis (as in Fig. 3) would lead to a rotation axis \\(a_x = 0, a_y = 0, a_z = 1\\).
 With a rotation angle \\( \alpha\\) we can compute the quaternion \\( [q_i, q_j, q_k, w]\\).
+A great resource explaining the quaternions visually can be accessed on YouTube [here](https://youtu.be/zjMuIxRvygQ).
 
 Given a unit quaternion \\( [q_i, q_j, q_k, w]\\) we can construct the rotation matrix
 
