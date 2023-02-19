@@ -260,7 +260,11 @@ The color of a transformation arrow corresponds to the transformation samples vi
 
 For the \\( {}_B^C \mathbf T (t^q)  \\) we can take an existing sample directly, 
 for the \\( {}_A^B \mathbf T (t^q)  \\) however, we are required to interpolate. In that case the method *spherical linear interpolation* (in short *SLERP*) can be used, 
-assuming rotation with uniform angular velocity around a fixed rotation axis.[^slerp] 
+assuming rotation with uniform angular velocity around a fixed rotation axis.[^slerp] In Python, SLERP [is implemented](https://docs.scipy.org/doc/scipy/reference/generated/scipy.spatial.transform.Slerp.html) 
+in the `scipy.spatial.transform.Slerp` function.
+
+Note that SLERP is only applied on the rotation part of the \\( \mathbf T \\) homog. matrix, not the translation. 
+For the translation linear interpolation can be used (refer to the Interpolation chapter in this book).
 
 After that, we can apply the chaining equation from the corresponding section:
 
@@ -269,7 +273,7 @@ After that, we can apply the chaining equation from the corresponding section:
 \\]
 
 An example of this computation is the transformation of a sensor (e.g. from LIDAR) reading
-to world coordinates (\\( {}_C^S \mathbf T (t^q)  \\) ) for mapping purposes. 
+to world coordinates (\\( {}_C^S \mathbf T (t^q)  \\) ) for mapping purposes.
 
 
 ## References
