@@ -241,7 +241,36 @@ such as line-strings, bounding boxes or polygons, which are defined as an ordere
 
 ## Transformations and time
 
-WIP
+In automotive applications we deal often with moving objects such as our vehicle or the objects like pedestrians which we are interacting with.
+The shape of the transformation tree is often unchanged (i.e. same number of nodes and vertices),
+but the transformation matrices, i.e. arrows in Fig. 4, change over time.
+
+Now, think of a use-case as in Fig. 4, where you require a transformation from coordinate system \\( A \\) to system \\( C \\) at a specific query time \\( t_q \\). 
+
+<p align="center">
+  <img src="./tf-trafo-over-time.svg" />
+</p>
+
+<figcaption><center>
+
+**Figure 4**: Querying the coordinate transformation from \\( A \\) to \\( C \\) at query time \\( t_q \\).
+The color of a transformation arrow corresponds to the transformation samples visualized over time (from left to right).
+
+</center></figcaption>
+
+For the \\( {}_B^C \mathbf T (t^q)  \\) we can take an existing sample directly, 
+for the \\( {}_A^B \mathbf T (t^q)  \\) however, we are required to interpolate. In that case the method *spherical linear interpolation* (in short *SLERP*) can be used, 
+assuming rotation with uniform angular velocity around a fixed rotation axis.[^slerp] 
+
+After that, we can apply the chaining equation from the corresponding section:
+
+\\[
+{}_C^A \mathbf T(t^q) = {}_B^A \mathbf T(t^q) {}_C^B \mathbf T(t^q)
+\\]
+
+An example of this computation is the transformation of a sensor (e.g. from LIDAR) reading
+to world coordinates (\\( {}_C^S \mathbf T (t^q)  \\) ) for mapping purposes. 
+
 
 ## References
 
@@ -256,3 +285,5 @@ WIP
 [^ros_transform_stamped] `geometry_msgs/TransformStamped` Message [docs](http://docs.ros.org/en/melodic/api/geometry_msgs/html/msg/TransformStamped.html)
 
 [^real_python_numpy_programming] Real Python - *Look Ma, No For-Loops: Array Programming With NumPy*, [link](https://realpython.com/numpy-array-programming/#what-is-vectorization)
+
+[^slerp] [Wikipedia: Quaternion Slerp](https://en.wikipedia.org/wiki/Slerp#Quaternion_Slerp)

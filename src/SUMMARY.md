@@ -12,6 +12,7 @@
 
 - [Interpolation](./data-preprocessing/interpolation.md)
 - [Transformation](./data-preprocessing/transformation.md)
+- [Merging datasets](./data-preprocessing/merging.md)
 
 # In-vehicle networks
 
