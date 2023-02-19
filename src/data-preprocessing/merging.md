@@ -29,5 +29,6 @@ The goal is to create a dataset C with a predefined frequency \\( f_C \\) which 
 
 ## Methodology (WIP)
 
-1. Interpolate (Up/Downsample the data), decide for each column individually
-2. Join the data by time
+1. Decide about \\( f_C \\) 
+2. Interpolate (Up/Downsample the data), decide for each column individually
+3. Join the data by time
