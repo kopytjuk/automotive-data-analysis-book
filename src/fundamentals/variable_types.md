@@ -29,5 +29,23 @@ Another important type of variable in statistics is the **continuous** variable.
 Unlike nominal, ordinal, and dichotomous variables, which are categorical in nature,
 continuous variables are numerical and can take any value within a range.
 
+Note that you can define either ordinal variables based on intervals of a single continuous variable,
+which can sometimes simplify an analysis or a metric.
+
 ## Representation in Python
 
+The following table gives a high level overview about the recommended representation of the above mentioned types
+in Python. In addition to Python-native types included in the standard library, the table lists types used in
+`numpy` and `pandas`, which is more convenient for larger analysis tasks.
+
+Of course you can also represent a nominal variable with pre-defined `float` values such as `[0.0, 1.0, 2.0]` for "truck", "bus" and "motorcycle",
+but the further data-processing and code is less efficient (e.g. `float16` needs double the memory of `int8`), and more error prone. 
+In addition you would also miss mechanisms from libraries like `pandas`,
+which prevent computing the `mean()` on a categorical column.
+
+| **Variable type** | **scalar**         | **numpy**           | **pandas**         |
+|-------------------|--------------------|---------------------|--------------------|
+| Nominal           | `int`, `enum.Enum` | `int8`              | `CategoricalDtype` |
+| Ordinal           | `ìnt`, `enum.Enum` | `int8`              | `CategoricalDtype` |
+| Dichotomous       | `bool`             | `bool`              | `bool`             |
+| Continuous        | `float`            | `float32`, `double` | `float32`, `double`|
