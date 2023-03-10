@@ -6,6 +6,7 @@
 
 # Fundamentals
 
+- [Variable types](./fundamentals/variable_types.md)
 - [Coordinate systems](./fundamentals/coordinate_systems.md)
 
 # Data Handling
