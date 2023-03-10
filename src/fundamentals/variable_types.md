@@ -49,3 +49,7 @@ which prevent computing the `mean()` on a categorical column.
 | Ordinal           | `ìnt`, `enum.Enum` | `int8`              | `CategoricalDtype` |
 | Dichotomous       | `bool`             | `bool`              | `bool`             |
 | Continuous        | `float`            | `float32`, `double` | `float32`, `double`|
+
+## Exercises
+
+TODO
