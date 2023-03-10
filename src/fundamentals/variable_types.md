@@ -43,13 +43,26 @@ but the further data-processing and code is less efficient (e.g. `float16` needs
 In addition you would also miss mechanisms from libraries like `pandas`,
 which prevent computing the `mean()` on a categorical column.
 
-| **Variable type** | **scalar**         | **numpy**           | **pandas**         |
+The time can be represented as a continuous variable, however there are specialized datatypes in both Python's standard lib and numpy/pandas.
+This enables a more convenient handling with time zones and facilitates doing algebra (e.g. computing time differences).
+
+
+| **Variable type** | **scalar**         | **numpy** [^numpy-dtypes]          | **pandas**         |
 |-------------------|--------------------|---------------------|--------------------|
 | Nominal           | `int`, `enum.Enum` | `int8`              | `CategoricalDtype` |
 | Ordinal           | `ìnt`, `enum.Enum` | `int8`              | `CategoricalDtype` |
-| Dichotomous       | `bool`             | `bool`              | `bool`             |
+| Dichotomous       | `bool`             | `bool` [^np-bool]   | `bool`             |
 | Continuous        | `float`            | `float32`, `double` | `float32`, `double`|
+| Time        | `float` / `datetime.datetime` | `datetime64`  | `datetime64` |
+
+Note that you can convert a continuous variable to a ordinal one using `pandas.cut` function.
 
 ## Exercises
 
-TODO
+1. Create an array of 100 uniformly distributed random numbers (0-150m) representing the measured distance from a LIDAR sensor. Categorize them in three groups, for <50m, <100m, <150m. Compute the number of occurrence for each group.
+2. TBD
+
+
+## References
+
+[^numpy-dtypes] Refer to the official NumPy [docs](https://numpy.org/doc/stable/user/basics.types.html#array-types-and-conversions-between-types) for reference regarding internal representation in memory.
