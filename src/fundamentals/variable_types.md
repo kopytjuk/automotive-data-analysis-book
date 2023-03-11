@@ -59,7 +59,7 @@ Note that you can convert a continuous variable to a ordinal one using `pandas.c
 
 ## Exercises
 
-1. Create an array of 100 uniformly distributed random numbers (0-150m) representing the measured distance from a LIDAR sensor. Categorize them in three groups, for <50m, <100m, <150m. Compute the number of occurrence for each group.
+1. Create an array of 100 uniformly distributed random numbers (0-150m) representing the measured distance from a LIDAR sensor. Categorize them in three groups, for <50m, <100m, <150m. Count the number of occurrences for each group.
 2. What is the most-memory efficient datatype for representing human weight? How would you represent time for a lane change manoeuvre?
 
 
