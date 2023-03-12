@@ -23,7 +23,7 @@ time_ms, object_id, x, y, z
 ...
 ```
 
-CSV files are commonly used to exchange data between different software applications because they are simple and easy to read and write. A big advantage of them is being easily readable by a human for short plausibility checks.
+CSV files are commonly used to exchange data between different software applications because they are simple and easy to read and write. A big advantage of them is being easily readable by a human for short plausibility checks. In parallel computing, the line-delimited structure allows an easier distribution to multiple computing threads (e.g. CPU-cores, processors, virtual machines).
 
 However, they have some limitations, such as being memory intensive (a number `1678554731022` has to be represented with 13 bytes with a byte per character.) By nature, since CSV represents tabular data, it is not able to represent complex data structures such as graphs or list of lists.
 Also, containing special characters (without encoding information from the author) that can cause issues when importing or exporting data.
@@ -64,6 +64,13 @@ Although JSON has many advantages, it also has some disadvantages:
 - Large file sizes: In some cases, JSON files can be larger than other data formats, such as CSV, because of its verbose nature. This can lead to slower data transfers or larger loading times.
 
 A notable extension of JSON is JSONL, which stands for Line delimited JSON, where each line represents a single record (e.g. point in time).
+
+### XML, YAML, INI, .env ...
+
+There are many other formats used in web & OS technology and are still existing in many software tools used in automotive industry. 
+Often they do not hold large arrays of data such hour long recordings with many variable, rather they are used as configuration files. There are some advantages and disadvantages compared to JSON, such as schema checks for XML or support for comments in YAML and `.env` files.
+
+When you design a complex system with external configuration, consider your stakeholders (users, consumers) and software interacting with your system in your choice.
 
 ## Binary formats
 
