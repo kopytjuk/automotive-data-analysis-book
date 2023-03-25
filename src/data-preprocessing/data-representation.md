@@ -16,6 +16,8 @@ such that all the attributes for a given entity (e.g., person, product, transact
 This can be useful for viewing and editing individual records,
 as all the information about a given entity is presented together in one place.
 
+A good discussion about the representation can be found on [StackOverflow](https://stackoverflow.com/a/36831549/10251805).
+
 ### Character-based vs. binary
 
 Character based formats, represent the data as ASCII characters, so they can directly interpreted by humans in
@@ -116,14 +118,15 @@ The values in each column are stored in contiguous memory locations, providing t
 - Encoding and compression techniques specific to the type of data in each column can be used
 - Queries that fetch specific column values need not read the entire row, thus improving performance
 
+### Protobuf (WIP)
 
-### Protobuf
+### ROS messages (WIP)
 
-### ROS messages
+### Avro (WIP)
 
-### Avro
+Avro is a row-based storage format for Hadoop.
 
-### Custom
+### Custom (WIP)
 
 Proprietary binary formats ...
 
