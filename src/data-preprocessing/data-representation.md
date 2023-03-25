@@ -114,7 +114,7 @@ Apache Parquet is a free and open-source column-oriented data storage format com
 
 The values in each column are stored in contiguous memory locations, providing the following benefits[^parquet-wiki]:
 
-- Column-wise compression is efficient in storage space
+- Column-wise compression is efficient in storage space[^parquet-file-format]
 - Encoding and compression techniques specific to the type of data in each column can be used
 - Queries that fetch specific column values need not read the entire row, thus improving performance
 
@@ -133,3 +133,4 @@ Proprietary binary formats ...
 ## References
 
 [^parquet-wiki] Wikipedia *Apache Parquet*, [link](https://en.wikipedia.org/wiki/Apache_Parquet)
+[^parquet-file-format] Apache Parquet - File Format [link](https://parquet.apache.org/docs/file-format/)
