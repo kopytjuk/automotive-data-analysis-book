@@ -3,7 +3,28 @@
 This chapter gives a rough overview of data formats often used in automotive industry for recordings,
 analysis and exchange.
 
-## Text based formats
+## Taxonomy
+
+### Record vs. column based
+
+In a column-wise representation, each column of data is stored together, 
+such that all the values for a given attribute (e.g., age, name, address) are stored in the same column.
+This can be useful for analysis, as it allows for easy aggregation and filtering of data based on specific attributes.
+
+In contrast, in a record-wise representation, each row of data is stored together, 
+such that all the attributes for a given entity (e.g., person, product, transaction) are stored in the same row. 
+This can be useful for viewing and editing individual records,
+as all the information about a given entity is presented together in one place.
+
+### Character based vs. binary
+
+Character based formats, represent the data as ASCII characters, so they can directly interpreted by humans in
+a text editor.
+
+Contrary to that, a binary type cannot be opened in a text editor and interpreted by a human due to binary representation of the numbers (instead of characters in ASCII) and in some cases
+applied compression.
+
+## Character based formats
 
 ### CSV
 
@@ -74,9 +95,6 @@ When you design a complex system with external configuration, consider your stak
 
 ## Binary formats
 
-A binary type cannot be opened in a text editor and interpreted by a human due to binary representation of the numbers (instead of characters in ASCII) and in some cases
-applied compression.
-
 ### Spreadsheet formats (xlsx, odt)
 
 TODO
@@ -89,6 +107,15 @@ but is also used in many other application areas.
 
 ### Parquet
 
+Apache Parquet is a free and open-source column-oriented data storage format coming from the Apache Hadoop ecosystem[^parquet-wiki].
+
+The values in each column are stored in contiguous memory locations, providing the following benefits[^parquet-wiki]:
+
+- Column-wise compression is efficient in storage space
+- Encoding and compression techniques specific to the type of data in each column can be used
+- Queries that fetch specific column values need not read the entire row, thus improving performance
+
+
 ### Protobuf
 
 ### ROS messages
@@ -98,3 +125,7 @@ but is also used in many other application areas.
 ### Custom
 
 Proprietary binary formats ...
+
+## References
+
+[^parquet-wiki] Wikipedia *Apache Parquet*, [link](https://en.wikipedia.org/wiki/Apache_Parquet)
