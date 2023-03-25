@@ -16,15 +16,16 @@ such that all the attributes for a given entity (e.g., person, product, transact
 This can be useful for viewing and editing individual records,
 as all the information about a given entity is presented together in one place.
 
-### Character based vs. binary
+### Character-based vs. binary
 
 Character based formats, represent the data as ASCII characters, so they can directly interpreted by humans in
 a text editor.
 
-Contrary to that, a binary type cannot be opened in a text editor and interpreted by a human due to binary representation of the numbers (instead of characters in ASCII) and in some cases
+Contrary to that, a binary type cannot be opened in a text editor and interpreted by a 
+human due to binary representation of the numbers (instead of characters in ASCII) and in some cases
 applied compression.
 
-## Character based formats
+## Character-based formats
 
 ### CSV
 
