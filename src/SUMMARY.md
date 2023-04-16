@@ -7,7 +7,9 @@
 # Fundamentals
 
 - [Variable types](./fundamentals/variable_types.md)
+- [Basic glyphs](./fundamentals/basic_glyphs.md)
 - [Coordinate systems](./fundamentals/coordinate_systems.md)
+
 
 # Data Handling
 
