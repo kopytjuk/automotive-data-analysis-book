@@ -10,7 +10,7 @@ time is represented as an array of timestamps:
 
 
 ```python
-# 3 seconds in Vinna (Central European Time: +1:00)
+# 3 seconds in Vienna (Central European Time: +1:00)
 [
     '2009-01-01T12:00:00+01:00',
     '2009-01-01T12:00:01+01:00',
@@ -32,7 +32,7 @@ Wikipedia provides a short and precise description[^wiki_unixtime]:
 That means that our initial example from Vienna turns to:
 
 ```python
-# 3 seconds in Vinna (Central European Time: +1:00)
+# 3 seconds in Vienna (Central European Time: +1:00)
 [
     3600,
     3601,
