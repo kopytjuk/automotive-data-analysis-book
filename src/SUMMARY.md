@@ -7,7 +7,8 @@
 # Fundamentals
 
 - [Variable types](./fundamentals/variable_types.md)
-- [Basic glyphs](./fundamentals/basic_glyphs.md)
+- [Time](./fundamentals/time.md)
+- [Geometry](./fundamentals/geometry.md)
 - [Coordinate systems](./fundamentals/coordinate_systems.md)
 
 

@@ -1,9 +1,4 @@
-# Basic datatypes
-
-This chapter describes a collection of essential datatypes commonly used in the analysis technical
-entities such as vehicles or robots.
-
-## Time
+# Time
 
 Computers are discrete in nature - thus we need a discrete representation as a datatype. Commonly
 time is represented as an array of timestamps: 
@@ -23,7 +18,7 @@ Timestamps can be timezone-aware or when we work only in once time-zone, without
 e.g. `2009-01-01T12:00:00`. A good practice is to convert the local timestamps into UTC (`+0:00`) prior
 to further processing.
 
-### Unix time
+## Unix time
 
 Wikipedia provides a short and precise description[^wiki_unixtime]:
 
@@ -43,13 +38,13 @@ That means that our initial example from Vienna turns to:
 
 The unix-time in the moment of writing (Sun Apr 16 2023 09:08:10) is `1681636090`.
 
-### Relative vs. absolute times
+## Relative vs. absolute times
 
 Some applications do not require the knowledge of the absolute time, a relative time (wrt start of the recording)
 is often enough, there we can use floating point arrays. Especially memory intensive applications use that approach,
 where it is easier to save the start time as timestamp and save the rest as an array of integers or floats.
 
-### Timezones
+## Timezones
 
 To quote Wikipedia, timezones are:
 
@@ -70,19 +65,8 @@ This variation corresponds to four minutes of time for every degree of longitude
 it is not convenient to schedule meetings or public transport.
 
 
-
-### References
+## References
 
 [^wiki_unixtime] Wikipedia - Unix Time ([link](https://en.wikipedia.org/wiki/Unix_time))
 
 [^wiki_timezone_history] Wikipedia - Time Zone History ([link](https://en.wikipedia.org/wiki/Time_zone#History))
-
-## Point
-
-## Vector
-
-## Line
-
-## Curve
-
-
