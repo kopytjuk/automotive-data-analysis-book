@@ -98,6 +98,11 @@ When you design a complex system with external configuration, consider your stak
 
 ## Binary formats
 
+Binary formats have multiple advantages over text-based formats.
+In addition to the memory efficiency (i.e. floating point number as a 64-bit vs. multiple ASCII characters), 
+the values binary formats store are often *typed*, means there is only one
+way to store and interpret for client applications. This allows a more robust data-exchange and data management.
+
 ### Spreadsheet formats (xlsx, odt)
 
 TODO

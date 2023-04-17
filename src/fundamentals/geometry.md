@@ -68,9 +68,9 @@ and in many languages like Python or C#) polygonal chains are be referred to as 
 
 </center></figcaption>
 
-## Curve
+## Curves
 
-It is not straightforward to define a curve in a human and understandable manner. In the following an example
+It is not straightforward to define a curve in a single mathematically unique manner. In the following an example
 definition from Wikipedia:
 
 > In mathematics, a curve (also called a curved line in older texts) is an object similar to a line, but that does not have to be straight.
@@ -79,9 +79,21 @@ Curves can have multiple representations and combinations of the those represent
 
 ### Function graphs
 
-A curve can be represented a a function, e.g. as a polynomial \\( y = f(x) = c_2 x^2 + c_1 x + c_0 \\)
+A curve can be represented a a function, e.g. as a polynomial \\( y = f(x) = c_3 x^3 + c_2 x^2 + c_1 x + c_0 \\).
 
-### Topological path & splines
+<p align="center">
+  <img src="polynomial-deg3.svg" />
+</p>
+
+<figcaption><center>
+
+**Figure 2**: The graph of a polynomial function of degree 3. [Image from Wikipedia](https://en.wikipedia.org/wiki/Polynomial#/media/File:Polynomialdeg3.svg).
+
+</center></figcaption>
+
+Note that \\( x \\) is the independent variable. Defining circles in the function graph representation is not possible.
+
+### Topological path
 
 A N-dimensional curve can be represented by its arc length \\( s \in [0, 1] \\) and a function in each dimension:
 
@@ -93,10 +105,35 @@ A N-dimensional curve can be represented by its arc length \\( s \in [0, 1] \\) 
     \end{bmatrix}
 \\]
 
-Splines are composed of multiple topological paths ...
+### Splines
 
-WIP
+A parametric spline is a composition of multiple topological paths, defined in a piece-wise manner.
 
-## Polygon
+<p align="center">
+  <img src="spline_interpolation.png" />
+</p>
 
+<figcaption><center>
+
+**Figure 3**: A spline with 8 knots, i.e. \\( s \in [0, 7] \\). Each section represents a topological path. [Image from Wikipedia](https://de.wikipedia.org/wiki/Datei:Spline_interpolation.svg).
+
+</center></figcaption>
+
+ ...
+
+Note, that a 2D spline can be defined as a collection of multiple function graphs, where \\( x \\) is the independent variable.
+This has a more compact representation and less complex computation, but prevents to define circles or clothoids.
+
+### Clothoids (WIP)
+
+Euler spirals ... WIP
+
+
+## Geometric shapes (WIP)
+
+### Circles & spheres (WIP)
+
+### Boxes & Cuboids (WIP)
+
+### Polygons & Polyhedrons (WIP)
 
