@@ -12,7 +12,7 @@ In order to communicate locations geographic coordinates on our planet, a pair o
 
 <figcaption><center>
 
-**Figure 1**: Geographic coordinates overview with <span style="color:blue">parallels</span> (blue) and <span style="color:red">meridians</span> (red). The prime meridian (longitude 0°) intersects Greenwich.
+**Figure 1**: Geographic coordinates overview with <span style="color:blue">parallels</span> (blue) and <span style="color:red">meridians</span> (red). The prime meridian (longitude 0°) intersects [Greenwich, United Kingdom](https://en.wikipedia.org/wiki/Greenwich).
 Edited Image from: [Wikipedia](https://en.wikipedia.org/wiki/Geographic_coordinate_system)
 
 </center></figcaption>
