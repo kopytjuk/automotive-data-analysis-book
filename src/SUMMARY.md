@@ -3,6 +3,7 @@
 # Introduction
 
 - [What is this book about?](./introduction/what_is_this_book_about.md)
+- [License](./introduction/license.md)
 
 # Fundamentals
 
