@@ -24,8 +24,15 @@
 - [Overview](perception/overview.md)
 - [RADAR](perception/radar.md)
 - [LIDAR](perception/lidar.md)
-- [Architectures](perception/architectures.md)
 - [Sensor Fusion](perception/sensor_fusion.md)
+- [Fusion Architectures](perception/architectures.md)
+
+# Maps
+
+- [Fundamentals](maps/fundamentals.md)
+- [GPS](maps/gps.md)
+- [Projections](maps/projections.md)
+
 
 # In-vehicle networks
 
