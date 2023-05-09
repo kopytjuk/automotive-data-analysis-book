@@ -32,6 +32,7 @@
 - [Fundamentals](maps/fundamentals.md)
 - [GPS](maps/gps.md)
 - [Projections](maps/projections.md)
+- [Open Street Maps](maps/open-street-maps.md)
 
 
 # In-vehicle networks
