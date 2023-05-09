@@ -145,10 +145,12 @@ In many targeting and tracking applications the local East, North, Up (ENU) Cart
 </p>
 
 <figcaption><center>
-**Figure 6**: The east north up (ENU) system together with ECEF and geodetic coordinates. Image from [^ecef-wiki]
+
+**Figure 6**: The east north up (ENU) system together with ECEF and geodetic coordinates.[^ecef-wiki]
+
 </center></figcaption>
 
-In Python, the transformation between geodetic and ENU coordinates is implemented in `pymap3d` library:
+In Python, the transformation between geodetic and ENU coordinates is implemented in `pymap3d` library ([docs](https://geospace-code.github.io/pymap3d/)):
 
 ```python
 import pymap3d as pm
@@ -168,7 +170,7 @@ pm.geodetic2enu(lat, lon, h, lat0, lon0, h0)
 # returns: (-7134.757195979863, -4556.321513844541, 2852.3904239436915)
 ```
 
-In MATLAB, `geodetic2enu` function can be used.
+In MATLAB, `geodetic2enu` function ([docs](https://de.mathworks.com/help/map/ref/geodetic2enu.html)) can be used.
 
 ## References
 
