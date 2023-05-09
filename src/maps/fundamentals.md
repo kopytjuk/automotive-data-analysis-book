@@ -53,7 +53,8 @@ In Wikipedia, it is defined as following[^geodetic-datum-wiki]:
 > A geodetic datum [...] is a reference frame for precisely representing the position of locations on Earth or other planetary bodies by means of geodetic coordinates.
 
 In Fig. 3 the ellipsoid from the widely used 1984 World Geodetic System (WGS84) is visualized.
-Modern navigation systems based on GPS use WGS84.
+The coordinate origin of WGS84 is meant to be located at the Earth's center of mass;
+the uncertainty is believed to be less than 2 cm. Modern navigation systems based on GPS use WGS84.[^world-geodetic-system-wiki]
 
 <p align="center">
   <img src="wgs84-wiki.svg" width="40%"/>
@@ -83,6 +84,18 @@ In the Fig. 4 the definition of geographic coordinates on a geodetic datum is vi
 
 Contrary to the *geodetic* latitude (Fig. 4), the *geocentric* latitude is the angle between the equatorial plane and the radius from the centre to a point of interest. On its own, the term "latitude" normally refers to the geodetic latitude.[^latitude-wiki]
 
+Note, that in some applications and countries, different geodetic datums can be used. For example, cartographers in Europe may use European Datum 1950 (ED50) whereas US-counterparts use North American Datum 1927 (NAD27) which approximates the USA better. See Fig. 5 for a visual explanation.
+
+<p align="center">
+  <img src="datums.png" width="40%"/>
+</p>
+
+<figcaption><center>
+
+**Figure 5**: Depending of the area of interest, different datums may be used. NAD27 approximates the left side of the geoid with a smaller error than ED50. Contrary to that, the right side is better modeled by ED50. [Image source](https://www.e-education.psu.edu/geog862/book/export/html/1669)
+
+</center></figcaption>
+
 ## Earth-centered, Earth-fixed coordinate system (ECEF)
 
 As with any spatial reference system, ECEF consists of an abstract coordinate system (in this case, a conventional three-dimensional right-handed system), and a geodetic datum that binds the coordinate system to actual locations on the Earth.[^ecef-wiki]
@@ -93,7 +106,7 @@ As with any spatial reference system, ECEF consists of an abstract coordinate sy
 
 <figcaption><center>
 
-**Figure 5**: Earth-centered, Earth-fixed coordinate system together with geodetic coordinates. Image from [^ecef-wiki]
+**Figure 6**: Earth-centered, Earth-fixed coordinate system together with geodetic coordinates. Image from [^ecef-wiki]
 
 </center></figcaption>
 
@@ -138,7 +151,7 @@ lon, lat, alt = pyproj.transform(ecef, lla, x, y, z, radians=False)
 
 ## Local east, north, up (ENU) coordinates
 
-In many targeting and tracking applications the local East, North, Up (ENU) Cartesian coordinate system (Fig. 6) is far more intuitive and practical than ECEF or Geodetic coordinates. The local ENU coordinates are formed from a plane tangent to the Earth's surface fixed to a specific location and hence it is sometimes known as a "Local Tangent" or "local geodetic" plane. By convention the east axis is labeled x, the north y and the up z.[^local-tangent-wiki]
+In many targeting and tracking applications the local East, North, Up (ENU) Cartesian coordinate system (Fig. 7) is far more intuitive and practical than ECEF or Geodetic coordinates. The local ENU coordinates are formed from a plane tangent to the Earth's surface fixed to a specific location and hence it is sometimes known as a "Local Tangent" or "local geodetic" plane. By convention the east axis is labeled x, the north y and the up z.[^local-tangent-wiki]
 
 <p align="center">
   <img src="enu-wiki.svg" width="50%"/>
@@ -146,7 +159,7 @@ In many targeting and tracking applications the local East, North, Up (ENU) Cart
 
 <figcaption><center>
 
-**Figure 6**: The east north up (ENU) system together with ECEF and geodetic coordinates.[^ecef-wiki]
+**Figure 7**: The east north up (ENU) system together with ECEF and geodetic coordinates.[^ecef-wiki]
 
 </center></figcaption>
 
@@ -177,6 +190,8 @@ In MATLAB, `geodetic2enu` function ([docs](https://de.mathworks.com/help/map/ref
 [^maps-book] Peter Anthamatten - *How to Make Maps, An Introduction to Theory and Practice of Cartography* (2021)
 
 [^geodetic-datum-wiki] https://en.wikipedia.org/wiki/Geodetic_datum
+
+[^world-geodetic-system-wiki] Wikipedia - World GeoDetic System https://en.wikipedia.org/wiki/World_Geodetic_System
 
 [^esa-reference-frames] Reference Frames in GNSS https://gssc.esa.int/navipedia/index.php/Reference_Frames_in_GNSS
 
