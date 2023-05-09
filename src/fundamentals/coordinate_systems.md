@@ -64,6 +64,10 @@ y = r \sin\theta \\, \sin\varphi \\\\
 z = r \cos\theta
 \\]
 
+## Others
+
+For geodetic and geographic coordinate systems, refer to [Maps](../maps/fundamentals.md#earth-centered-earth-fixed-coordinate-system-ecef) chapter.
+
 ## References
 
 [^wiki_cartesian_system] Wikipedia - Cartesian Coordinate System, [link](https://en.wikipedia.org/wiki/Cartesian_coordinate_system)
