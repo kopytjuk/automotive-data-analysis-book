@@ -1,7 +1,7 @@
 # What is this book about
 
 The automotive and robotics industries are both a rapidly evolving fields, with technological advancements and increasing consumer demands driving innovation and growth. Furthermore, the methods, concepts and tools used across those industries cover multiple scientific and engineering domains: Physics, signal processing, machine learning,
-geodesy, numerical theory robotics, control theory etc. This variety can pose a significant challenge for data scientists which have zero or little background in this topics.
+geodesy, numerical theory robotics, control theory and many more. This variety can pose a significant challenge for data scientists which have zero or little background in those fields.
 
 This online book tries to summarize the most essential concepts
 used for data analysis in both the automotive and robotics industry. The concepts covered here, can be applied to logistics, autonomous vehicles, traffic analysis etc.
