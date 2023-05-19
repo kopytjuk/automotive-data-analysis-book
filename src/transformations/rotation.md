@@ -30,6 +30,8 @@ An illustration of the 2-dimensional case can be found in Fig. 1. The unit vecto
 
 \\[
 {}^{A}_B R = \begin{bmatrix}
+{}^{A}\vec X_B & {}^{A}\vec Y_B
+\end{bmatrix} = \begin{bmatrix}
 \cos \theta & -\sin \theta \\\\ 
 \sin \theta & \cos \theta 
 \end{bmatrix}
@@ -44,6 +46,13 @@ An illustration of the 2-dimensional case can be found in Fig. 1. The unit vecto
 **Figure 1**: 2D rotation with a rotation angle \\(\theta  \\)
 
 </center></figcaption>
+The rotation matrix can be seen as a linear mapping between two coordinate systems:
+
+\\[
+{}^{A}x = {}^{A}_B R \\ {}^{B}x
+\\]
+
+
 
 ### Euler axis and angle
 

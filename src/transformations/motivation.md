@@ -36,7 +36,7 @@ In a nutshell, the core operation is to convert a point given in one coordinate 
 
 A transformation is an operation where the initial coordinate system is moved and rotated. The "move" operation is called **translation**.
 
-A transformation of a point in coordinate system B (i.e  \\({}^{B} \vec x\\)) to the coordinate system A can be computed with a matrix multiplication in homogenous coordinates:
+A transformation of a point in coordinate system B (i.e  \\({}^{B} \vec x\\)) to the coordinate system A can be computed with a matrix multiplication in homogenous coordinates[^robotics_book]:
 
 \\[
 \begin{bmatrix}
@@ -65,11 +65,15 @@ By inverting the transformation matrix we can revert the operation:
 \end{bmatrix}
 \\]
 
+The nomenclature describing the transformations were adapted from the great book from John Craig, *Introduction to Robotics* (1989)[^robotics_book].
+
 ## Learning goals
 
 - Know and understand the value of coordinate transformations
 - Understanding the terminology and fundamental mathematical concepts
 - Describe the transformation conversion mathematically and implement it
 
+## References
 
+[^robotics_book] John Craig, *Introduction to Robotics* (1989)
 
