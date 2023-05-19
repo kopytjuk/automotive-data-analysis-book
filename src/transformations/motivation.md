@@ -34,7 +34,9 @@ In a nutshell, the core operation is to convert a point given in one coordinate 
 
 </center></figcaption>
 
-Mathematically A transformation between two coordinate systems \\(A, B\\) can be represented as a matrix in homogenous coordinates:
+A transformation is an operation where the initial coordinate system is moved and rotated. The "move" operation is called **translation**.
+
+A transformation of a point in coordinate system B (i.e  \\({}^{B} \vec x\\)) to the coordinate system A can be computed with a matrix multiplication in homogenous coordinates:
 
 \\[
 \begin{bmatrix}
@@ -46,7 +48,7 @@ Mathematically A transformation between two coordinate systems \\(A, B\\) can be
 \end{bmatrix}
 \\]
 
-The 4x4 matrix \\( {}^{A}_B \mathbf T \\) is called the transformation matrix and is the core mathematical element of the process.
+The 4x4 matrix \\( {}^{A}_B \mathbf T \\) is called the transformation matrix between the coordinate systems A and B.
 
 By inverting the transformation matrix we can revert the operation:
 
