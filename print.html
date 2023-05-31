@@ -1,0 +1,1179 @@
+<!DOCTYPE HTML>
+<html lang="en" class="sidebar-visible no-js light">
+    <head>
+        <!-- Book generated using mdBook -->
+        <meta charset="UTF-8">
+        <title>Data analysis for robotics</title>
+        <meta name="robots" content="noindex" />
+
+
+        <!-- Custom HTML head -->
+        
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta name="theme-color" content="#ffffff" />
+
+        <link rel="icon" href="favicon.svg">
+        <link rel="shortcut icon" href="favicon.png">
+        <link rel="stylesheet" href="css/variables.css">
+        <link rel="stylesheet" href="css/general.css">
+        <link rel="stylesheet" href="css/chrome.css">
+        <link rel="stylesheet" href="css/print.css" media="print">
+
+        <!-- Fonts -->
+        <link rel="stylesheet" href="FontAwesome/css/font-awesome.css">
+        <link rel="stylesheet" href="fonts/fonts.css">
+
+        <!-- Highlight.js Stylesheets -->
+        <link rel="stylesheet" href="highlight.css">
+        <link rel="stylesheet" href="tomorrow-night.css">
+        <link rel="stylesheet" href="ayu-highlight.css">
+
+        <!-- Custom theme stylesheets -->
+
+        <!-- MathJax -->
+        <script async src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    </head>
+    <body>
+    <div id="body-container">
+        <!-- Provide site root to javascript -->
+        <script>
+            var path_to_root = "";
+            var default_theme = window.matchMedia("(prefers-color-scheme: dark)").matches ? "navy" : "light";
+        </script>
+
+        <!-- Work around some values being stored in localStorage wrapped in quotes -->
+        <script>
+            try {
+                var theme = localStorage.getItem('mdbook-theme');
+                var sidebar = localStorage.getItem('mdbook-sidebar');
+
+                if (theme.startsWith('"') && theme.endsWith('"')) {
+                    localStorage.setItem('mdbook-theme', theme.slice(1, theme.length - 1));
+                }
+
+                if (sidebar.startsWith('"') && sidebar.endsWith('"')) {
+                    localStorage.setItem('mdbook-sidebar', sidebar.slice(1, sidebar.length - 1));
+                }
+            } catch (e) { }
+        </script>
+
+        <!-- Set the theme before any content is loaded, prevents flash -->
+        <script>
+            var theme;
+            try { theme = localStorage.getItem('mdbook-theme'); } catch(e) { }
+            if (theme === null || theme === undefined) { theme = default_theme; }
+            var html = document.querySelector('html');
+            html.classList.remove('no-js')
+            html.classList.remove('light')
+            html.classList.add(theme);
+            html.classList.add('js');
+        </script>
+
+        <!-- Hide / unhide sidebar before it is displayed -->
+        <script>
+            var html = document.querySelector('html');
+            var sidebar = null;
+            if (document.body.clientWidth >= 1080) {
+                try { sidebar = localStorage.getItem('mdbook-sidebar'); } catch(e) { }
+                sidebar = sidebar || 'visible';
+            } else {
+                sidebar = 'hidden';
+            }
+            html.classList.remove('sidebar-visible');
+            html.classList.add("sidebar-" + sidebar);
+        </script>
+
+        <nav id="sidebar" class="sidebar" aria-label="Table of contents">
+            <div class="sidebar-scrollbox">
+                <ol class="chapter"><li class="chapter-item expanded affix "><li class="part-title">Introduction</li><li class="chapter-item expanded "><div><strong aria-hidden="true">1.</strong> Foreword</div></li><li class="chapter-item expanded "><a href="introduction/license.html"><strong aria-hidden="true">2.</strong> License</a></li><li class="chapter-item expanded affix "><li class="part-title">Fundamentals</li><li class="chapter-item expanded "><a href="fundamentals/variable_types.html"><strong aria-hidden="true">3.</strong> Variable types</a></li><li class="chapter-item expanded "><a href="fundamentals/time.html"><strong aria-hidden="true">4.</strong> Time</a></li><li class="chapter-item expanded "><a href="fundamentals/geometry.html"><strong aria-hidden="true">5.</strong> Geometry</a></li><li class="chapter-item expanded "><a href="fundamentals/coordinate_systems.html"><strong aria-hidden="true">6.</strong> Coordinate systems</a></li><li class="chapter-item expanded affix "><li class="part-title">Coordinate Transformations</li><li class="chapter-item expanded "><a href="transformations/motivation.html"><strong aria-hidden="true">7.</strong> Introduction</a></li><li class="chapter-item expanded "><a href="transformations/transformation-tree.html"><strong aria-hidden="true">8.</strong> Transformation tree</a></li><li class="chapter-item expanded "><a href="transformations/transformation-matrix.html"><strong aria-hidden="true">9.</strong> Transformation matrix</a></li><li class="chapter-item expanded "><a href="transformations/rotation.html"><strong aria-hidden="true">10.</strong> Rotation</a></li><li class="chapter-item expanded "><a href="transformations/time.html"><strong aria-hidden="true">11.</strong> Transformations over time</a></li><li class="chapter-item expanded "><a href="transformations/implementation.html"><strong aria-hidden="true">12.</strong> Implementation in Python</a></li><li class="chapter-item expanded affix "><li class="part-title">Data Handling</li><li class="chapter-item expanded "><a href="data-preprocessing/data-representation.html"><strong aria-hidden="true">13.</strong> Data representation</a></li><li class="chapter-item expanded "><a href="data-preprocessing/interpolation.html"><strong aria-hidden="true">14.</strong> Interpolation</a></li><li class="chapter-item expanded "><a href="data-preprocessing/merging.html"><strong aria-hidden="true">15.</strong> Merging datasets</a></li><li class="chapter-item expanded affix "><li class="part-title">Perception</li><li class="chapter-item expanded "><a href="perception/overview.html"><strong aria-hidden="true">16.</strong> Overview</a></li><li class="chapter-item expanded "><a href="perception/radar.html"><strong aria-hidden="true">17.</strong> RADAR</a></li><li class="chapter-item expanded "><a href="perception/lidar.html"><strong aria-hidden="true">18.</strong> LIDAR</a></li><li class="chapter-item expanded "><a href="perception/sensor_fusion.html"><strong aria-hidden="true">19.</strong> Sensor Fusion</a></li><li class="chapter-item expanded "><a href="perception/architectures.html"><strong aria-hidden="true">20.</strong> Fusion Architectures</a></li><li class="chapter-item expanded affix "><li class="part-title">Maps and Geography</li><li class="chapter-item expanded "><a href="maps/fundamentals.html"><strong aria-hidden="true">21.</strong> Fundamentals</a></li><li class="chapter-item expanded "><a href="maps/gps.html"><strong aria-hidden="true">22.</strong> GPS</a></li><li class="chapter-item expanded "><a href="maps/projections.html"><strong aria-hidden="true">23.</strong> Projections</a></li><li class="chapter-item expanded "><a href="maps/spatial_indexing.html"><strong aria-hidden="true">24.</strong> Spatial Indexing</a></li><li class="chapter-item expanded "><a href="maps/open-street-maps.html"><strong aria-hidden="true">25.</strong> Open Street Maps</a></li><li class="chapter-item expanded affix "><li class="part-title">In-vehicle networks</li><li class="chapter-item expanded "><a href="in-vehicle-networks/intro.html"><strong aria-hidden="true">26.</strong> Overview</a></li><li class="chapter-item expanded "><a href="in-vehicle-networks/can_bus.html"><strong aria-hidden="true">27.</strong> Controller Area Network</a></li></ol>
+            </div>
+            <div id="sidebar-resize-handle" class="sidebar-resize-handle"></div>
+        </nav>
+
+        <div id="page-wrapper" class="page-wrapper">
+
+            <div class="page">
+                                <div id="menu-bar-hover-placeholder"></div>
+                <div id="menu-bar" class="menu-bar sticky bordered">
+                    <div class="left-buttons">
+                        <button id="sidebar-toggle" class="icon-button" type="button" title="Toggle Table of Contents" aria-label="Toggle Table of Contents" aria-controls="sidebar">
+                            <i class="fa fa-bars"></i>
+                        </button>
+                        <button id="theme-toggle" class="icon-button" type="button" title="Change theme" aria-label="Change theme" aria-haspopup="true" aria-expanded="false" aria-controls="theme-list">
+                            <i class="fa fa-paint-brush"></i>
+                        </button>
+                        <ul id="theme-list" class="theme-popup" aria-label="Themes" role="menu">
+                            <li role="none"><button role="menuitem" class="theme" id="light">Light</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="rust">Rust</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="coal">Coal</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="navy">Navy</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="ayu">Ayu</button></li>
+                        </ul>
+                        <button id="search-toggle" class="icon-button" type="button" title="Search. (Shortkey: s)" aria-label="Toggle Searchbar" aria-expanded="false" aria-keyshortcuts="S" aria-controls="searchbar">
+                            <i class="fa fa-search"></i>
+                        </button>
+                    </div>
+
+                    <h1 class="menu-title">Data analysis for robotics</h1>
+
+                    <div class="right-buttons">
+                        <a href="print.html" title="Print this book" aria-label="Print this book">
+                            <i id="print-button" class="fa fa-print"></i>
+                        </a>
+
+                    </div>
+                </div>
+
+                <div id="search-wrapper" class="hidden">
+                    <form id="searchbar-outer" class="searchbar-outer">
+                        <input type="search" id="searchbar" name="searchbar" placeholder="Search this book ..." aria-controls="searchresults-outer" aria-describedby="searchresults-header">
+                    </form>
+                    <div id="searchresults-outer" class="searchresults-outer hidden">
+                        <div id="searchresults-header" class="searchresults-header"></div>
+                        <ul id="searchresults">
+                        </ul>
+                    </div>
+                </div>
+
+                <!-- Apply ARIA attributes after the sidebar and the sidebar toggle button are added to the DOM -->
+                <script>
+                    document.getElementById('sidebar-toggle').setAttribute('aria-expanded', sidebar === 'visible');
+                    document.getElementById('sidebar').setAttribute('aria-hidden', sidebar !== 'visible');
+                    Array.from(document.querySelectorAll('#sidebar a')).forEach(function(link) {
+                        link.setAttribute('tabIndex', sidebar === 'visible' ? 0 : -1);
+                    });
+                </script>
+
+                <div id="content" class="content">
+                    <main>
+                        <h1 id="license"><a class="header" href="#license">License</a></h1>
+<p>This work is licensed under a
+<a href="http://creativecommons.org/licenses/by-nc-sa/4.0/">Creative Commons Attribution-NonCommercial-ShareAlike 4.0 International License</a>.</p>
+<p><a href="http://creativecommons.org/licenses/by-nc-sa/4.0/"><img src="https://licensebuttons.net/l/by-nc-sa/4.0/88x31.png" alt="CC BY-NC-SA 4.0" /></a></p>
+<p>This is a human-readable summary of (and not a substitute for) the license.</p>
+<p>You are free to:</p>
+<ul>
+<li>Share — copy and redistribute the material in any medium or format</li>
+<li>Adapt — remix, transform, and build upon the material</li>
+</ul>
+<p>However, you may not use the material for commercial purposes.</p>
+<div style="break-before: page; page-break-before: always;"></div><h1 id="variable-types"><a class="header" href="#variable-types">Variable types</a></h1>
+<h2 id="overview"><a class="header" href="#overview">Overview</a></h2>
+<p>In the context of automotive data analysis, a variable can be thought of as a (static) characteristic or a measurement that can change or vary over time. 
+Variables can be used to describe different aspects of the environment or the vehicle itself, such as its position, speed, acceleration, size, distance, object type or colour.</p>
+<p>Variables play a crucial role in automotive data analysis because they allow us to measure and quantify the behavior of a vehicle and its surroundings. By collecting and analyzing data on these variables, we can gain insights into how an (automated) vehicle is performing, identify critical situations, evaluate the sensor performance and finally reason about its safety.</p>
+<p>It's important to note that variables in automotive data analysis can come in different forms, such as continuous variables (e.g., speed, size or acceleration) or categorical variables (e.g., material, colour and model of the vehicle).</p>
+<p><img src="fundamentals/./variable-types-overview.png" alt="var-types" /></p>
+<h2 id="taxonomy"><a class="header" href="#taxonomy">Taxonomy</a></h2>
+<h3 id="categorical-variables"><a class="header" href="#categorical-variables">Categorical variables</a></h3>
+<p><strong>Nominal</strong> variables are variables that have categories or labels with no inherent order or hierarchy. For example, in automotive data analysis, a nominal variable could be the make or model of a vehicle. Each vehicle belongs to a particular make and model category, but there is no inherent order or ranking between different categories. </p>
+<p><strong>Dichotomous</strong> variables are variables that have only two possible categories or values. 
+For example, in automotive data analysis, a dichotomous variable could be whether a vehicle is electric or gasoline-powered. Dichotomous variables are often analyzed using binary logistic regression, which can help identify factors that are associated with the presence or absence of a particular category or value.</p>
+<p><strong>Ordinal</strong> variables, on the other hand, have categories or labels that can be ranked or ordered based on their relative value or magnitude. 
+For example, in automotive data analysis, an ordinal variable could be the level of fuel efficiency of different vehicles, which can be ranked from most fuel-efficient to least fuel-efficient. Ordinal variables are analyzed using measures such as median and quartiles, which can provide insights into the central tendency and variability of the data.</p>
+<h3 id="continuous-variables"><a class="header" href="#continuous-variables">Continuous variables</a></h3>
+<p>Another important type of variable in statistics is the <strong>continuous</strong> variable. 
+Unlike nominal, ordinal, and dichotomous variables, which are categorical in nature,
+continuous variables are numerical and can take any value within a range.</p>
+<p>Note that you can define either ordinal variables based on intervals of a single continuous variable,
+which can sometimes simplify an analysis or a metric.</p>
+<h2 id="representation-in-python"><a class="header" href="#representation-in-python">Representation in Python</a></h2>
+<p>The following table gives a high level overview about the recommended representation of the above mentioned types
+in Python. In addition to Python-native types included in the standard library, the table lists types used in
+<code>numpy</code> and <code>pandas</code>, which is more convenient for larger analysis tasks.</p>
+<p>Of course you can also represent a nominal variable with pre-defined <code>float</code> values such as <code>[0.0, 1.0, 2.0]</code> for &quot;truck&quot;, &quot;bus&quot; and &quot;motorcycle&quot;,
+but the further data-processing and code is less efficient (e.g. <code>float16</code> needs double the memory of <code>int8</code>), and more error prone. 
+In addition you would also miss mechanisms from libraries like <code>pandas</code>,
+which prevent computing the <code>mean()</code> on a categorical column.</p>
+<p>The time can be represented as a continuous variable, however there are specialized datatypes in both Python's standard lib and numpy/pandas.
+This enables a more convenient handling with time zones and facilitates doing algebra (e.g. computing time differences).</p>
+<div class="table-wrapper"><table><thead><tr><th><strong>Variable type</strong></th><th><strong>scalar</strong></th><th><strong>numpy</strong> <sup class="footnote-reference"><a href="#numpy-dtypes">1</a></sup></th><th><strong>pandas</strong></th></tr></thead><tbody>
+<tr><td>Nominal</td><td><code>int</code>, <code>enum.Enum</code></td><td><code>int8</code></td><td><code>CategoricalDtype</code></td></tr>
+<tr><td>Ordinal</td><td><code>ìnt</code>, <code>enum.Enum</code></td><td><code>int8</code></td><td><code>CategoricalDtype</code></td></tr>
+<tr><td>Dichotomous</td><td><code>bool</code></td><td><code>bool</code> <sup class="footnote-reference"><a href="#np-bool">2</a></sup></td><td><code>bool</code></td></tr>
+<tr><td>Continuous</td><td><code>float</code></td><td><code>float32</code>, <code>double</code></td><td><code>float32</code>, <code>double</code></td></tr>
+<tr><td>Time</td><td><code>float</code> / <code>datetime.datetime</code></td><td><code>datetime64</code></td><td><code>datetime64</code></td></tr>
+</tbody></table>
+</div>
+<p>Note that you can convert a continuous variable to a ordinal one using <code>pandas.cut</code> function.</p>
+<h2 id="exercises"><a class="header" href="#exercises">Exercises</a></h2>
+<ol>
+<li>Create an array of 100 uniformly distributed random numbers (0-150m) representing the measured distance from a LIDAR sensor. Categorize them in three groups, for &lt;50m, &lt;100m, &lt;150m. Count the number of occurrences for each group.</li>
+<li>What is the most-memory efficient datatype for representing human weight? How would you represent time for a lane change manoeuvre?</li>
+</ol>
+<h2 id="references"><a class="header" href="#references">References</a></h2>
+<p><sup class="footnote-reference"><a href="#numpy-dtypes">1</a></sup> Refer to the official NumPy <a href="https://numpy.org/doc/stable/user/basics.types.html#array-types-and-conversions-between-types">docs</a> for reference regarding internal representation in memory.</p>
+<div style="break-before: page; page-break-before: always;"></div><h1 id="time"><a class="header" href="#time">Time</a></h1>
+<p>Computers are discrete in nature - thus we need a discrete representation as a datatype. Commonly
+time is represented as an array of timestamps: </p>
+<pre><code class="language-python"># 3 seconds in Vienna (Central European Time: +1:00)
+[
+    '2009-01-01T12:00:00+01:00',
+    '2009-01-01T12:00:01+01:00',
+    '2009-01-01T12:00:02+01:00',
+    ...
+]
+</code></pre>
+<p>Timestamps can be timezone-aware or when we work only in once time-zone, without any timezone information,
+e.g. <code>2009-01-01T12:00:00</code>. A good practice is to convert the local timestamps into UTC (<code>+0:00</code>) prior
+to further processing.</p>
+<h2 id="utc"><a class="header" href="#utc">UTC</a></h2>
+<p>No matter which timezone you are in, you can always represent the time in a standardized way by using the Coordinated Universal Time or UTC.</p>
+<p>Coordinated Universal Time or UTC is the primary time standard by which the world regulates clocks and time.
+UTC is used in many Internet and World Wide Web standards. The Network Time Protocol (NTP), designed to synchronise the clocks of computers over the Internet, transmits time information from the UTC system. If only milliseconds precision is needed, clients can obtain the current UTC from a number of official internet UTC servers. For sub-microsecond precision, clients can obtain the time from satellite signals.<sup class="footnote-reference"><a href="#wiki-utc">1</a></sup></p>
+<h2 id="unix-time"><a class="header" href="#unix-time">Unix time</a></h2>
+<p>Wikipedia provides a short and precise description<sup class="footnote-reference"><a href="#wiki_unixtime">2</a></sup>:</p>
+<blockquote>
+<p>Unix time is a date and time representation widely used in computing. It measures time by the number of seconds that have elapsed since 00:00:00 UTC on 1 January 1970, the beginning of the Unix epoch, without adjustments made due to leap seconds.</p>
+</blockquote>
+<p>That means that our initial example from Vienna turns to:</p>
+<pre><code class="language-python"># 3 seconds in Vienna (Central European Time: +1:00)
+[
+    3600,
+    3601,
+    3602,
+    ...
+]
+</code></pre>
+<p>The unix-time in the moment of writing (Sun Apr 16 2023 09:08:10) is <code>1681636090</code>.</p>
+<h2 id="timezones"><a class="header" href="#timezones">Timezones</a></h2>
+<p>To quote Wikipedia, timezones are:</p>
+<blockquote>
+<p>A time zone is an area which observes a uniform standard time for legal, commercial and social purposes. Time zones tend to follow the boundaries between countries and their subdivisions instead of strictly following longitude, because it is convenient for areas in frequent communication to keep the same time.</p>
+</blockquote>
+<p>To add to this definition, is that each timezone is defined by a temporal offset (in hours) relative to the Coordinated Universal Time (UTC). Timezones
+west to Greenwich are often negative, those to the east positive.</p>
+<p>Some examples:</p>
+<ul>
+<li>Central European Time (CET) is defined by a positive offset (<code>+1:00</code> in winter and <code>+2:00</code> in summer).</li>
+<li>The Pacific Time Zone (PT) has a negative offset (<code>-8:00</code> in winter and <code>-7:00</code> in summer).</li>
+<li>India Standard Time (IST) has an &quot;unround&quot; offset <code>+5:30</code></li>
+</ul>
+<p align="center">
+  <img src="fundamentals/World_Time_Zones_Map.png" />
+</p>
+<figcaption><center>
+<p><strong>Figure 1</strong>: Time zones of the world. <a href="https://en.wikipedia.org/wiki/Time_zone#/media/File:World_Time_Zones_Map.png">Image from Wikipedia</a>.</p>
+</center></figcaption>
+<p>Prior the the 19th century people were using <em>solar time</em>, so when it was noon in London, it is about 10 minutes before solar noon in Bristol.
+This variation corresponds to four minutes of time for every degree of longitude.<sup class="footnote-reference"><a href="#wiki_timezone_history">3</a></sup> You can imagine that with that system,
+it is not convenient to schedule meetings or public transport.</p>
+<h3 id="implementation-in-python"><a class="header" href="#implementation-in-python">Implementation in Python</a></h3>
+<p>The preferred way of dealing with times is to always work in UTC, converting to localtime only when generating output to be read by humans.</p>
+<p>In Python, you can create a <em>datetime-aware</em> timestamp (i.e. a timestamp with timezone description) passing a <code>tzinfo</code> argument. This argument should be a subclass of <code>tzinfo</code> - such as the <a href="https://docs.python.org/3/library/datetime.html#timezone-objects"><code>timezone</code></a> object:</p>
+<pre><code class="language-python">from datetime import datetime, timedelta, timezone
+
+# create a timestamp in Germany (Central European Summer Time +2:00)
+cest_tz = datetime.timezone(datetime.timedelta(seconds=2*3600))
+time = datetime.datetime(2023, 5, 14, 18, 55, tzinfo=cest_tz)
+
+# convert to UTC:
+time.astimezone(timezone.utc)
+# &gt; datetime.datetime(2023, 5, 14, 16, 55, tzinfo=datetime.timezone.utc)
+</code></pre>
+<p>Some time-zones have non-static (e.g. different in winter and summer) offsets, such as Central European (Summer) Time for daylight saving. For that cases,
+consider using <a href="https://docs.python.org/3/library/zoneinfo.html#module-zoneinfo"><code>zoneinfo</code></a> module:</p>
+<pre><code class="language-python">import zoneinfo
+
+berlin_tz = zoneinfo.ZoneInfo(&quot;Europe/Berlin&quot;)
+time = datetime.datetime(2023, 5, 14, 18, 55, tzinfo=berlin_tz)
+</code></pre>
+<p>This code makes sure, that any conversion to UTC will produce the right result, independent of daylight time.</p>
+<h2 id="relative-vs-absolute-timestamp"><a class="header" href="#relative-vs-absolute-timestamp">Relative vs. absolute timestamp</a></h2>
+<p>A relative timestamp represents the duration relative to the start of a recording or an event:</p>
+<pre><code class="language-python"># 4 relative timesteps
+relative_time_secs = [0.0, 0.01, 0.02, 0.03]  # s
+relative_time_nsecs = [0, 10, 20, 30]  # ms
+</code></pre>
+<p>This representation facilitates the comparison of multiple timeseries against each other.</p>
+<p>The relative representation can be used for represent high resolution (i.e. frequency) timestamps,
+where the interval range of the <code>int</code> datatype is not enough to reach a particular date.</p>
+<p>Another consideration is that many algorithm implementations require relative time starting with <code>0</code> as inputs.</p>
+<h2 id="references-1"><a class="header" href="#references-1">References</a></h2>
+<p><sup class="footnote-reference"><a href="#wiki_unixtime">2</a></sup> Wikipedia - Unix Time (<a href="https://en.wikipedia.org/wiki/Unix_time">link</a>)</p>
+<p><sup class="footnote-reference"><a href="#wiki_timezone_history">3</a></sup> Wikipedia - Time Zone History (<a href="https://en.wikipedia.org/wiki/Time_zone#History">link</a>)</p>
+<p><sup class="footnote-reference"><a href="#wiki-utc">1</a></sup> Wikipedia - UTC (<a href="https://en.wikipedia.org/wiki/Coordinated_Universal_Time">link</a>)</p>
+<div style="break-before: page; page-break-before: always;"></div><h1 id="basic-datatypes"><a class="header" href="#basic-datatypes">Basic datatypes</a></h1>
+<p>This chapter describes a collection of essential datatypes commonly used in the analysis technical
+entities such as vehicles or robots.</p>
+<h2 id="point"><a class="header" href="#point">Point</a></h2>
+<p>A \( N \)-dimensional point is typically represented as a tuple of \( N \) floating point numbers:</p>
+<pre><code class="language-python"># 3-dimensional point
+p = (1.23, 342.2, 123.12)
+</code></pre>
+<p>In (geo-)spatial applications are usually used to represent a location. In general, a point can represent
+any entity (e.g. person in an employee) database as a tuple of its <em>characteristics</em> or <em>features</em>:</p>
+<pre><code class="language-python"># 3-dimensional point
+employee = (
+    31,     # age [years]
+    5000,   # monthly salary [$]
+    13,     # time in the company [years]
+)
+</code></pre>
+<h2 id="vector"><a class="header" href="#vector">Vector</a></h2>
+<p>A vector is geometric object which has a magnitude (length) and a direction.</p>
+<p>The representation of a vector is equal to the points in the section above - you
+can define a vector by a tuple of \( N \) points.</p>
+<p>Vectors are essential in technical domain. Forces, velocity, acceleration - all those terms are defined in terms of vectors:</p>
+<pre><code class="language-python"># velocity vector of the rocket at start
+v = (
+    0,       # x [m/s]
+    0,       # y [m/s]
+    7900.0,  # z [m/s]
+)
+</code></pre>
+<h2 id="lines"><a class="header" href="#lines">Lines</a></h2>
+<h3 id="line-segment"><a class="header" href="#line-segment">Line segment</a></h3>
+<p>In mathematics a line is an infinitely long object defined by a point and a vector. Alternatively we can
+define a line by two points. Since objects in our daily life are finite,
+we are dealing with line parts or segments, e.g. edges, sizes or paths.</p>
+<p>A line segment can be represented with its end points \( p_0 \) and \( p_1 \). The length
+of the line segment is the magnitude of the direction vector \( ||\vec v ||_2 = || p_1 - p_0 ||_2 \).</p>
+<h3 id="linestrings"><a class="header" href="#linestrings">Linestrings</a></h3>
+<p>Furthermore, multiple line segments can be combined to a <em>polygonal chain</em>. In computational geometry 
+and in many languages like Python or C#) polygonal chains are be referred to as  <code>LineString</code>s.</p>
+<p align="center">
+  <img src="fundamentals/linestring-wiki.png" />
+</p>
+<figcaption><center>
+<p><strong>Figure 1</strong>: A linestring composed of 5 line segments. <a href="https://en.wikipedia.org/wiki/Polygonal_chain#/media/File:Chainline.svg">Image from Wikipedia</a>.</p>
+</center></figcaption>
+<h2 id="curves"><a class="header" href="#curves">Curves</a></h2>
+<p>It is not straightforward to define a curve in a single mathematically unique manner. In the following an example
+definition from Wikipedia:</p>
+<blockquote>
+<p>In mathematics, a curve (also called a curved line in older texts) is an object similar to a line, but that does not have to be straight.</p>
+</blockquote>
+<p>Curves can have multiple representations and combinations of the those representations.</p>
+<h3 id="function-graphs"><a class="header" href="#function-graphs">Function graphs</a></h3>
+<p>A curve can be represented a a function, e.g. as a polynomial \( y = f(x) = c_3 x^3 + c_2 x^2 + c_1 x + c_0 \).</p>
+<p align="center">
+  <img src="fundamentals/polynomial-deg3.svg" />
+</p>
+<figcaption><center>
+<p><strong>Figure 2</strong>: The graph of a polynomial function of degree 3. <a href="https://en.wikipedia.org/wiki/Polynomial#/media/File:Polynomialdeg3.svg">Image from Wikipedia</a>.</p>
+</center></figcaption>
+<p>Note that \( x \) is the independent variable. Defining circles in the function graph representation is not possible.</p>
+<h3 id="topological-path"><a class="header" href="#topological-path">Topological path</a></h3>
+<p>A N-dimensional curve can be represented by its arc length \( s \in [0, 1] \) and a function in each dimension:</p>
+<p>\[
+p = \begin{bmatrix}
+f_x(s) \\
+f_y(s) \\
+f_z(s)
+\end{bmatrix}
+\]</p>
+<h3 id="splines"><a class="header" href="#splines">Splines</a></h3>
+<p>A parametric spline is a composition of multiple topological paths, defined in a piece-wise manner.</p>
+<p align="center">
+  <img src="fundamentals/spline_interpolation.png" />
+</p>
+<figcaption><center>
+<p><strong>Figure 3</strong>: A spline with 8 knots, i.e. \( s \in [0, 7] \). Each section represents a topological path. <a href="https://de.wikipedia.org/wiki/Datei:Spline_interpolation.svg">Image from Wikipedia</a>.</p>
+</center></figcaption>
+<p>...</p>
+<p>Note, that a 2D spline can be defined as a collection of multiple function graphs, where \( x \) is the independent variable.
+This has a more compact representation and less complex computation, but prevents to define circles or clothoids.</p>
+<h3 id="clothoids-wip"><a class="header" href="#clothoids-wip">Clothoids (WIP)</a></h3>
+<p>Euler spirals ... WIP</p>
+<h2 id="geometric-shapes-wip"><a class="header" href="#geometric-shapes-wip">Geometric shapes (WIP)</a></h2>
+<h3 id="circles--spheres-wip"><a class="header" href="#circles--spheres-wip">Circles &amp; spheres (WIP)</a></h3>
+<h3 id="boxes--cuboids-wip"><a class="header" href="#boxes--cuboids-wip">Boxes &amp; Cuboids (WIP)</a></h3>
+<h3 id="polygons--polyhedrons-wip"><a class="header" href="#polygons--polyhedrons-wip">Polygons &amp; Polyhedrons (WIP)</a></h3>
+<div style="break-before: page; page-break-before: always;"></div><h1 id="coordinate-systems"><a class="header" href="#coordinate-systems">Coordinate systems</a></h1>
+<h2 id="cartesian-coordinate-system"><a class="header" href="#cartesian-coordinate-system">Cartesian coordinate system</a></h2>
+<h3 id="introduction"><a class="header" href="#introduction">Introduction</a></h3>
+<p>This system is the first system we hear about in high school. First it is taught in terms of <em>x,y</em>-graphs where pupils enter pairs of numbers in a 2-D system. Later, we learn the term <em>function</em> which is can be represented graphically as a curve in this system.</p>
+<p>A bit about history: Cartesian coordinates are named for René Descartes whose invention of them in the 17th century revolutionized mathematics by providing the first systematic link between geometry and algebra. Using the Cartesian coordinate system, geometric shapes (such as curves) can be described by equations involving the coordinates of points of the shape.<sup class="footnote-reference"><a href="#wiki_cartesian_system">1</a></sup></p>
+<h3 id="left--vs-right-handed"><a class="header" href="#left--vs-right-handed">Left- vs. right-handed</a></h3>
+<p>In 2-D system, the position of x and y is fixed for many people, where the y axis is usually pointed toward the north. For a 3-D system however, there are multiple definitions:</p>
+<p align="center">
+  <img src="fundamentals/cartesian_coordinate_system_handedness.svg" />
+</p>
+<figcaption><center>
+<p><strong>Figure 1</strong>: Left-handed coordinates on the left, right-handed coordinates on the right. <a href="https://en.wikipedia.org/wiki/Right-hand_rule#/media/File:Cartesian_coordinate_system_handedness.svg">Image from Wikipedia</a></p>
+</center></figcaption>
+<p>For <strong>right-handed</strong> coordinates, the right thumb points along the z-axis in the positive direction and the curling motion of the fingers of the right hand represents a motion from the first or x-axis to the second or y-axis. When viewed from the top or z-axis the system is counter-clockwise.<sup class="footnote-reference"><a href="#wiki_right_hand_rule">2</a></sup> Robotic applications and frameworks such as ROS, use the right hand-rule, see <sup class="footnote-reference"><a href="#ros_rep103">3</a></sup>.</p>
+<p>For left-handed coordinates, the left thumb points along the z-axis in the positive direction and the curling motion of the fingers of the left hand represent a motion from the first or x-axis to the second or y-axis. When viewed from the top or z-axis the system is clockwise.<sup class="footnote-reference"><a href="#wiki_right_hand_rule">2</a></sup></p>
+<h2 id="spherical-coordinate-system"><a class="header" href="#spherical-coordinate-system">Spherical coordinate system</a></h2>
+<p>Spherical coordinate system is used across a a wide palette of applications, besides astronomy and geo-informatics, it is essential for automotive applications, too. A RADAR or LIDAR sensor output their readings by providing the range, azimuth- and elevation-angle to the object of the detection. This section provides a short overview over notation, characteristics and commonly used coordinate transformations.</p>
+<p>A spherical coordinate system (Fig. 2) is defined over the radial distance \( r \), azimuth angle \( \varphi \) and inclination angle \( \theta \):</p>
+<p align="center">
+  <img src="fundamentals/Kugelkoord-def.svg" />
+</p>
+<figcaption><center>
+<p><strong>Figure 2</strong>: Right-handed cartesian and spherical coordinate system in ISO 80000-2:2019 convention.  <a href="https://de.wikipedia.org/wiki/Kugelkoordinaten#/media/Datei:Kugelkoord-def.svg">Image from Wikipedia</a>, extended with \( \varepsilon \) elevation angle.</p>
+</center></figcaption>
+<p>The angle the  \( \varepsilon = \frac \pi 2 - \theta \) is often used instead of \( \theta \) for data coming from RADAR or LIDAR sensors. When referring to field of view of a sensor, a horizontal range refers to the extent of \( \varphi \) and vertical to \( \varepsilon \).</p>
+<h3 id="transformation-to-cartesian"><a class="header" href="#transformation-to-cartesian">Transformation to Cartesian</a></h3>
+<p>The spherical coordinates of a point in the ISO convention (i.e. for physics: radius r, inclination θ, azimuth φ) can be obtained from its Cartesian coordinates (x, y, z) by the formulae<sup class="footnote-reference"><a href="#wiki_spher_system">4</a></sup>:</p>
+<p>\[
+r = \sqrt{x^2 + y^2 + z^2} \\
+\theta = \arccos\frac{z}{\sqrt{x^2 + y^2 + z^2}} \\
+\varphi = sgn(y)\arccos\frac{x}{\sqrt{x^2+y^2}}
+\]</p>
+<p>The sign function \( sgn(x) \) returns 1 for positive numbers \( x &gt; 0\), 0 for \( x = 0\) and -1 for negative \( x &lt; 0\).<sup class="footnote-reference"><a href="#wiki_sign_function">5</a></sup></p>
+<p>Conversely, the Cartesian coordinates may be retrieved from the spherical coordinates by<sup class="footnote-reference"><a href="#wiki_spher_system">4</a></sup>:</p>
+<p>\[
+x = r \sin\theta \, \cos\varphi \\
+y = r \sin\theta \, \sin\varphi \\
+z = r \cos\theta
+\]</p>
+<h2 id="others"><a class="header" href="#others">Others</a></h2>
+<p>For geodetic and geographic coordinate systems, refer to <a href="fundamentals/../maps/fundamentals.html#earth-centered-earth-fixed-coordinate-system-ecef">Maps</a> chapter.</p>
+<h2 id="references-2"><a class="header" href="#references-2">References</a></h2>
+<p><sup class="footnote-reference"><a href="#wiki_cartesian_system">1</a></sup> Wikipedia - Cartesian Coordinate System, <a href="https://en.wikipedia.org/wiki/Cartesian_coordinate_system">link</a></p>
+<p><sup class="footnote-reference"><a href="#wiki_right_hand_rule">2</a></sup> Wikipedia - Right hand rule, <a href="https://en.wikipedia.org/wiki/Right-hand_rule">link</a></p>
+<p><sup class="footnote-reference"><a href="#ros_rep103">3</a></sup> ROS REP103 - Standard Units of Measure and Coordinate Conventions, <a href="https://www.ros.org/reps/rep-0103.html#coordinate-frame-conventions">link</a></p>
+<p><sup class="footnote-reference"><a href="#wiki_spher_system">4</a></sup> Wikipedia - Spherical coordinate system, <a href="https://en.wikipedia.org/wiki/Spherical_coordinate_system#Cartesian_coordinates">link</a></p>
+<p><sup class="footnote-reference"><a href="#wiki_sign_function">5</a></sup> Wikipedia - Sign function, <a href="https://en.wikipedia.org/wiki/Sign_function">link</a></p>
+<div style="break-before: page; page-break-before: always;"></div><h1 id="motivation"><a class="header" href="#motivation">Motivation</a></h1>
+<h2 id="foreword"><a class="header" href="#foreword">Foreword</a></h2>
+<p>Coordinate transformations are needed in the technical and industrial context for various reasons:</p>
+<ul>
+<li>Integration of components and actors: When different components or systems need to work together in a facility, it may be necessary to align their coordinate systems. This enables seamless integration and smooth exchange of information. As illustrated in the &quot;factory of the future&quot; example (Fig. 1), a robot perceiving a person with its sensors needs to transmit the position to other robots as a trigger for the next task or a collision warning.</li>
+<li>Alignment and orientation: During assembly or alignment of parts or machinery, determining their positions and orientations relative to each other is often necessary. Coordinate transformations allow measurements in one coordinate system to be transferred to another, enabling precise alignment determination.</li>
+<li>Machine vision, tracking and robotics: In fields such as machine vision and robotics, coordinate transformations are used to unify information from different sensors or cameras into a common coordinate system. This enables precise positioning, object detection, and decision-making. This is in particular important for autonomous vehicles perceiving its environment from multiple sensors mounted on different places and heights.</li>
+</ul>
+<p align="center">
+  <img src="transformations/factory-of-the-future.jpeg" width="80%"/>
+</p>
+<figcaption><center>
+<p><strong>Figure 1</strong>: Factory of the Future, Image from Comau North America (<a href="https://www.automationalley.com/articles/building-the-factory-of-the-future-comaus-approach-to-industry-4-0">source</a>)</p>
+</center></figcaption>
+<p>Through coordinate transformations, data and information can be transferred, integrated, and analyzed between different coordinate systems to understand, control, and optimize complex technical and industrial processes.</p>
+<h2 id="transformation-operation"><a class="header" href="#transformation-operation">Transformation operation</a></h2>
+<p>In a nutshell, the core operation is to convert a point given in one coordinate system to another (Fig. 2):</p>
+<p align="center">
+  <img src="transformations/transform-simple-2d.svg" width="60%"/>
+</p>
+<figcaption><center>
+<p><strong>Figure 2</strong>: A common use case is to convert the location (x, y) of the green point from one coordinate system (red) to another (blue)</p>
+</center></figcaption>
+<p>A transformation is an operation where the initial coordinate system is moved and rotated. The &quot;move&quot; operation is called <strong>translation</strong>.</p>
+<p>A transformation of a point in coordinate system B (i.e  \({}^{B} \vec x\)) to the coordinate system A can be computed with a matrix multiplication in homogenous coordinates<sup class="footnote-reference"><a href="#robotics_book">1</a></sup>:</p>
+<p>\[
+\begin{bmatrix}
+{}^{A} \vec x \\
+1
+\end{bmatrix}  = {}^{A}_B \mathbf T \ \begin{bmatrix}
+{}^{B} \vec x \\
+1
+\end{bmatrix}
+\]</p>
+<p>The 4x4 matrix \( {}^{A}_B \mathbf T \) is called the transformation matrix between the coordinate systems A and B.</p>
+<p>By inverting the transformation matrix we can revert the operation:</p>
+<p>\[
+\begin{bmatrix}
+{}^{B} \vec x \\
+1
+\end{bmatrix}  = {}^{A}_B \mathbf T^{-1} \begin{bmatrix}
+{}^{A} \vec x \\
+1
+\end{bmatrix} = {}^{B}_A \mathbf T \ \begin{bmatrix}
+{}^{A} \vec x \\
+1
+\end{bmatrix}
+\]</p>
+<p>The nomenclature describing the transformations were adapted from the great book from John Craig, <em>Introduction to Robotics</em> (1989)<sup class="footnote-reference"><a href="#robotics_book">1</a></sup>.</p>
+<h2 id="learning-goals"><a class="header" href="#learning-goals">Learning goals</a></h2>
+<ul>
+<li>Know and understand the value of coordinate transformations</li>
+<li>Understanding the terminology and fundamental mathematical concepts</li>
+<li>Describe the transformation conversion mathematically and implement it</li>
+</ul>
+<h2 id="references-3"><a class="header" href="#references-3">References</a></h2>
+<p><sup class="footnote-reference"><a href="#robotics_book">1</a></sup> John Craig, <em>Introduction to Robotics</em> (1989)</p>
+<div style="break-before: page; page-break-before: always;"></div><h1 id="transformation-tree"><a class="header" href="#transformation-tree">Transformation tree</a></h1>
+<h2 id="overview-1"><a class="header" href="#overview-1">Overview</a></h2>
+<p>To transform points between multiple (moving) actors, it is essential to understand the concept of <em>transformation trees</em> which define the connections between coordinate systems.</p>
+<p align="center">
+  <img src="transformations/tf-tree-v2.png" />
+</p>
+<figcaption><center>
+<p><strong>Figure 1</strong>: Transformation tree for two actors with two sensors each. Each box represents a coordinate system (or frame), each arrow represents the transformation where a parent frame is pointing towards a child frame..</p>
+</center></figcaption>
+<p>A <em>transformation tree</em> is a directed graph (Fig. 1) with nodes as coordinate systems and transformations between them as vertices. 
+In a nutshell, it is helpful to think of the arrows as &quot;mathematical recipes&quot; converting points from one system to another.</p>
+<p>The higher level system is often referred to as a <strong>parent frame</strong>, the lower level is often called the <strong>child frame.</strong>.</p>
+<p>Note that the structure of this graph remains constant over time, even if the mathematical relation between world and vehicle coordinate systems change.</p>
+<h2 id="chaining-transformations"><a class="header" href="#chaining-transformations">Chaining transformations</a></h2>
+<p>Having the relations tracked in the tree diagram it is straightforward to <strong>chain</strong> transformations together. The matrix notation allows an computationally efficient transformation between multiple coordinate frames, since we can combine multiple transformations into one matrix (Eq. 2.40 from <sup class="footnote-reference"><a href="#robotics_book">1</a></sup>):</p>
+<p>\[
+{}^{A}_C \mathbf T =  {}^{A}_B \mathbf T \ {}^{B}_C \mathbf T
+\]</p>
+<p>Applied to the diagram from Fig. 1 this formulation allows us to transform between <em>world</em> and <em>sensor</em> coordinate system with a single operation \(\mathbf T_{world \rightarrow robot0-sensorA}\).</p>
+<h2 id="references-4"><a class="header" href="#references-4">References</a></h2>
+<p><sup class="footnote-reference"><a href="#tf_paper">2</a></sup> <a href="http://wiki.ros.org/tf">ROS: <em>tf</em> library</a></p>
+<p><sup class="footnote-reference"><a href="#robotics_book">1</a></sup> John Craig, <em>Introduction to Robotics</em> (1989)</p>
+<div style="break-before: page; page-break-before: always;"></div><h1 id="transformation-matrix"><a class="header" href="#transformation-matrix">Transformation matrix</a></h1>
+<p>In this section we decompose the matrix \( {}^{A}_B T\) into its two main components: translation and rotation.</p>
+<p>The transformation between two coordinate systems \(A, B\) can be represented as a 4x4 matrix in homogenous coordinates:</p>
+<p>\[
+\begin{bmatrix}
+{}^{A} \vec x \\
+1
+\end{bmatrix}  = {}^{A}_B \mathbf T \ \begin{bmatrix}
+{}^{B} \vec x \\
+1
+\end{bmatrix} \\
+\begin{bmatrix}
+{}^{A} \vec x \\
+1
+\end{bmatrix} = \begin{bmatrix}
+{}^{A}_B R &amp; {}^{A}t_B \\
+\mathbf 0 &amp; 1
+\end{bmatrix} \begin{bmatrix}
+{}^{B} \vec x \\
+1
+\end{bmatrix}
+\]</p>
+<p>Note that \( \mathbf 0 = [0, 0, 0]\), i.e. a 3x1 row vector.</p>
+<p>The transformation matrix \( {}^{A}_B T\) has two core components (Fig. 1):</p>
+<ul>
+<li>a 3x1 displacement vector \( {}^{A}t_B \), which describes the translation of \(B\)'s origin in the \(A\) system. 
+For a sensor mounted  5m in x-axis direction from the point of reference, the displacement vector is \( [5, 0, 0]^T\).</li>
+<li>a 3x3 rotation matrix \({}^{A}_B R\), which describes the rotation of the axes of coordinate system \(B\) in the \(A\).
+I.e. the columns are formed from the three unit vectors of B's axes in A: \({}^{A}\vec X_B\), \({}^{A}\vec Y_B\), and \({}^{A}\vec Z_B\).<sup class="footnote-reference"><a href="#ros_transform">1</a></sup></li>
+</ul>
+<p align="center">
+  <img src="transformations/transform-translation-and-rotation.svg" width="70%"/>
+</p>
+<figcaption><center>
+<p><strong>Figure 1</strong>: Coordinate transformation matrix composed from displacement vector \( {}^{A}t_B \) (red) and rotation matrix \({}^{A}_B R\) (blue).</p>
+</center></figcaption>
+<p>In the next section we will learn how the rotation matrix is composed.</p>
+<h2 id="references-5"><a class="header" href="#references-5">References</a></h2>
+<p><sup class="footnote-reference"><a href="#ros_transform">1</a></sup> ROS Overview - Transformations (<a href="http://wiki.ros.org/tf/Overview/Transformations">source</a>)</p>
+<div style="break-before: page; page-break-before: always;"></div><h1 id="rotation"><a class="header" href="#rotation">Rotation</a></h1>
+<p>As outlined in previos sections, a transformation is a combination of translation and rotation. In this section, the rotation part will be discussed.</p>
+<p>In geometry, various formalisms exist to express a rotation in three dimensions as a mathematical transformation.<sup class="footnote-reference"><a href="#rotation-formalisms-wiki">1</a></sup> Some examples:</p>
+<ul>
+<li>Rotation matrices</li>
+<li>Euler axis and angle</li>
+<li>Euler rotations</li>
+<li>Quarternions</li>
+</ul>
+<p>In general, according to Euler's rotation theorem the rotation of a rigid body (or three-dimensional coordinate system with the fixed origin) is described by a single rotation about some axis. Such a rotation may be uniquely described by a minimum of three real parameters.<sup class="footnote-reference"><a href="#rotation-formalisms-wiki">1</a></sup></p>
+<h2 id="rotation-formalisms"><a class="header" href="#rotation-formalisms">Rotation formalisms</a></h2>
+<h3 id="rotation-matrix"><a class="header" href="#rotation-matrix">Rotation matrix</a></h3>
+<p>A 3x3 rotation matrix \({}^{A}_B R\) describes the rotation of the axes of coordinate system \(B\) relative to system \(A\).</p>
+<p>The columns are formed from the three unit vectors of B's axes expressed in A: \({}^{A}\vec X_B\), \({}^{A}\vec Y_B\), and \({}^{A}\vec Z_B\).<sup class="footnote-reference"><a href="#ros_transform">2</a></sup></p>
+<p>\[
+{}^{A}_B R =
+\begin{bmatrix}
+{}^{A}\vec X_B &amp; {}^{A}\vec Y_B &amp; {}^{A}\vec Z_B
+\end{bmatrix}
+\]</p>
+<p>An illustration of the 2-dimensional case can be found in Fig. 1. The unit vectors of the system B are expressed as vectors in system A:</p>
+<p>\[
+{}^{A}_B R = \begin{bmatrix}
+{}^{A}\vec X_B &amp; {}^{A}\vec Y_B
+\end{bmatrix} = \begin{bmatrix}
+\cos \theta &amp; -\sin \theta \\ 
+\sin \theta &amp; \cos \theta 
+\end{bmatrix}
+\]</p>
+<p align="center">
+  <img src="transformations/./rotation-matrix-figure.png" width="60%"/>
+</p>
+<figcaption><center>
+<p><strong>Figure 1</strong>: 2D rotation with a rotation angle \(\theta  \)</p>
+</center></figcaption>
+The rotation matrix can be seen as a linear mapping between two coordinate systems:
+<p>\[
+{}^{A}x = {}^{A}_B R \ {}^{B}x
+\]</p>
+<h3 id="euler-axis-and-angle"><a class="header" href="#euler-axis-and-angle">Euler axis and angle</a></h3>
+<p>According to Euler's rotation theorem the rotation of a rigid body (or three-dimensional coordinate system with the fixed origin) is described by a single rotation about some axis. Such a rotation may be uniquely described by a minimum of three real parameters.<sup class="footnote-reference"><a href="#rotation-formalisms-wiki">1</a></sup></p>
+<p align="center">
+  <img src="transformations/Euler_AxisAngle.png" width="40%"/>
+</p>
+<figcaption><center>
+<p><strong>Figure 2</strong>: A visualization of a rotation represented by an Euler axis and angle. Image from <sup class="footnote-reference"><a href="#rotation-formalisms-wiki">1</a></sup></p>
+</center></figcaption>
+<h3 id="euler-rotations"><a class="header" href="#euler-rotations">Euler rotations</a></h3>
+<p>The idea behind Euler rotations is to split the complete rotation of the coordinate system <strong>into three simpler constitutive rotations</strong>. That means, we can define a rotation by a chain of rotation axis and angels. The Euler rotations or Euler angles are also referred to as <em>Davenport angles</em>.</p>
+<p>There are two groups, based on the order of the rotation axis:</p>
+<ul>
+<li>Generalized (classical) Euler rotations: \( zxz, xyx, yzy, zyz, xzx, yxy  \)</li>
+<li>Generalized Tait–Bryan rotations: \( xyz, yzx, zxy, xzy, zyx, yxz \)</li>
+</ul>
+<p>E.g. \( zxz \) is a rotation on the z-axis, followed by x and again z.</p>
+<p>Note, that there is difference whether the rotation is applied intrinsically (i.e. the rotated axes is a starting point for the next rotation) or extrinsically (all the rotations are applied wrt. initial coordinates).</p>
+<p>Note, that there are <strong>24 (=2x(6+6)) ways in total</strong> to define a rotation.</p>
+<p>Any extrinsic rotation is equivalent to an intrinsic rotation by the same angles but with inverted order of elemental rotations, and vice versa. For instance, the intrinsic rotations x-y-z by angles α, β, γ are equivalent to the extrinsic rotations z-y-x by angles γ, β, α.<sup class="footnote-reference"><a href="#davenport-rotations-wiki">3</a></sup> Both are represented by a rotation matrix R:</p>
+<p>\[
+R = R_x(\alpha) \ R_y(\beta) \ R_z(\gamma)
+\]</p>
+<p>The formulas for the basic rotations (e.g. \( R_x(\alpha) \)) can be found <a href="https://en.wikipedia.org/wiki/Rotation_matrix#Basic_rotations">here</a>.</p>
+<h3 id="quaternions"><a class="header" href="#quaternions">Quaternions</a></h3>
+<p>A quaternion representation of rotation is written as a versor (normalized quaternion):</p>
+<p>\[
+\hat{\mathbf{q}} =q_i\mathbf{i}+q_j\mathbf{j}+q_k\mathbf{k}+q_r = \begin{bmatrix} q_i \\ q_j \\ q_k \\ w \end{bmatrix}
+\]</p>
+<p>A unit quaternion \(\mathbf q\) holds the information about the rotation axis \( [a_x, a_y, a_z]^T \) and 
+the rotation angle \(\alpha\) (similar to <em>Euler axis and angle</em> representation):</p>
+<p>\[
+\mathbf q =  sin(\frac \alpha 2) (a_x i + a_y j + a_z k) + cos(\frac \alpha 2) \\
+q_i = sin(\frac \alpha 2) a_x i \\
+q_j = sin(\frac \alpha 2) a_y j \\
+q_k = sin(\frac \alpha 2) a_z k \\
+w = cos(\frac \alpha 2)
+\]</p>
+<p>Quaternions, which form a four-dimensional vector space, have proven very useful in representing &amp; transmitting rotations due to several advantages over the other representations mentioned above.<sup class="footnote-reference"><a href="#rotation-formalisms-wiki">1</a></sup> Quaternions are a very popular parametrization due to the following properties<sup class="footnote-reference"><a href="#rotation-formalisms-wiki">1</a></sup>:</p>
+<ul>
+<li>More compact than the matrix representation (=less data to transmit and hold in memory) and less susceptible to round-off errors</li>
+<li>Expression of the rotation matrix in terms of quaternion parameters involves no trigonometric functions (refer <a href="https://en.wikipedia.org/wiki/Quaternions_and_spatial_rotation#From_a_quaternion_to_an_orthogonal_matrix">here</a>) (=sin &amp; cosinus are compute heavy)</li>
+<li>It is simple to combine two individual rotations represented as quaternions using a quaternion product</li>
+</ul>
+<h2 id="references-6"><a class="header" href="#references-6">References</a></h2>
+<p><sup class="footnote-reference"><a href="#rotation-formalisms-wiki">1</a></sup> Wikipedia - <a href="https://en.wikipedia.org/wiki/Rotation_formalisms_in_three_dimensions">Rotation formalisms in three dimensions</a></p>
+<p><sup class="footnote-reference"><a href="#davenport-rotations-wiki">3</a></sup> Wikipedia - <a href="https://en.wikipedia.org/wiki/Davenport_chained_rotations">https://en.wikipedia.org/wiki/Davenport_chained_rotations</a></p>
+<div style="break-before: page; page-break-before: always;"></div><h1 id="transformations-over-time"><a class="header" href="#transformations-over-time">Transformations over time</a></h1>
+<div style="break-before: page; page-break-before: always;"></div><h1 id="implementation-in-python-1"><a class="header" href="#implementation-in-python-1">Implementation in Python</a></h1>
+<p>The concepts mentioned above and the conversions between various systems (together with a TF-tree) are implemented in <a href="https://github.com/dfki-ric/pytransform3d"><code>pytransform3d</code></a>:</p>
+<pre><code class="language-python"># from: https://github.com/dfki-ric/pytransform3d#example
+
+import numpy as np
+import matplotlib.pyplot as plt
+from pytransform3d import rotations as pr
+from pytransform3d import transformations as pt
+from pytransform3d.transform_manager import TransformManager
+
+
+rng = np.random.default_rng(0)
+
+ee2robot = pt.transform_from_pq(
+    np.hstack((np.array([0.4, -0.3, 0.5]),
+               pr.random_quaternion(rng))))
+cam2robot = pt.transform_from_pq(
+    np.hstack((np.array([0.0, 0.0, 0.8]), pr.q_id)))
+object2cam = pt.transform_from(
+    pr.active_matrix_from_intrinsic_euler_xyz(np.array([0.0, 0.0, -0.5])),
+    np.array([0.5, 0.1, 0.1]))
+
+
+tm = TransformManager()  # holds the TF tree
+tm.add_transform(&quot;end-effector&quot;, &quot;robot&quot;, ee2robot)
+tm.add_transform(&quot;camera&quot;, &quot;robot&quot;, cam2robot)
+tm.add_transform(&quot;object&quot;, &quot;camera&quot;, object2cam)
+
+# holds the final transform matrix
+ee2object = tm.get_transform(&quot;end-effector&quot;, &quot;object&quot;)
+</code></pre>
+<h2 id="references-7"><a class="header" href="#references-7">References</a></h2>
+<p><sup class="footnote-reference"><a href="#rotation-formalisms-wiki">1</a></sup> Wikipedia - <a href="https://en.wikipedia.org/wiki/Rotation_formalisms_in_three_dimensions">Rotation formalisms in three dimensions</a></p>
+<p><sup class="footnote-reference"><a href="#davenport-rotations-wiki">2</a></sup> Wikipedia - <a href="https://en.wikipedia.org/wiki/Davenport_chained_rotations">https://en.wikipedia.org/wiki/Davenport_chained_rotations</a></p>
+<div style="break-before: page; page-break-before: always;"></div><h1 id="data-representation"><a class="header" href="#data-representation">Data representation</a></h1>
+<p>This chapter gives a rough overview of data formats often used in automotive industry for recordings,
+analysis and exchange.</p>
+<h2 id="taxonomy-1"><a class="header" href="#taxonomy-1">Taxonomy</a></h2>
+<h3 id="record-vs-column-based"><a class="header" href="#record-vs-column-based">Record vs. column based</a></h3>
+<p>In a column-wise representation, each column of data is stored together, 
+such that all the values for a given attribute (e.g., age, name, address) are stored in the same column.
+This can be useful for analysis, as it allows for easy aggregation and filtering of data based on specific attributes.</p>
+<p>In contrast, in a record-wise representation, each row of data is stored together, 
+such that all the attributes for a given entity (e.g., person, product, transaction) are stored in the same row. 
+This can be useful for viewing and editing individual records,
+as all the information about a given entity is presented together in one place.</p>
+<p>A good discussion about the representation can be found on <a href="https://stackoverflow.com/a/36831549/10251805">StackOverflow</a>.</p>
+<h3 id="character-based-vs-binary"><a class="header" href="#character-based-vs-binary">Character-based vs. binary</a></h3>
+<p>Character based formats, represent the data as ASCII characters, so they can directly interpreted by humans in
+a text editor.</p>
+<p>Contrary to that, a binary type cannot be opened in a text editor and interpreted by a 
+human due to binary representation of the numbers (instead of characters in ASCII) and in some cases
+applied compression.</p>
+<h2 id="character-based-formats"><a class="header" href="#character-based-formats">Character-based formats</a></h2>
+<h3 id="csv"><a class="header" href="#csv">CSV</a></h3>
+<p>CSV stands for &quot;Comma-Separated Values&quot;, and it is a simple file format used to store tabular data (data organized in rows and columns).</p>
+<p>In a CSV file, each row represents a record, and each column represents a field. Fields are separated by a delimiter, most commonly a comma (hence the name). 
+However, other delimiters such as semicolons or tabs can also be used.</p>
+<p>The first row of a CSV file often contains the names of the fields (also called headers), while the subsequent rows contain the actual data.</p>
+<pre><code class="language-csv">time_ms, object_id, x, y, z
+1678554731011, 40, 74.2, 3.51, -0.03
+1678554731011, 42, 69.2, 0.12, 0.02
+1678554731022, 40, 73.6, 3.48, 0.022
+1678554731022, 42, 73.8, -0.15, -0.031
+...
+</code></pre>
+<p>CSV files are commonly used to exchange data between different software applications because they are simple and easy to read and write. A big advantage of them is being easily readable by a human for short plausibility checks. In parallel computing, the line-delimited structure allows an easier distribution to multiple computing threads (e.g. CPU-cores, processors, virtual machines).</p>
+<p>However, they have some limitations, such as being memory intensive (a number <code>1678554731022</code> has to be represented with 13 bytes with a byte per character.) By nature, since CSV represents tabular data, it is not able to represent complex data structures such as graphs or list of lists.
+Also, containing special characters (without encoding information from the author) that can cause issues when importing or exporting data.</p>
+<h3 id="json"><a class="header" href="#json">JSON</a></h3>
+<p>JSON stands for &quot;JavaScript Object Notation&quot;, and it is a lightweight data interchange format used to store and exchange structured data between different software applications. In a JSON file, data is represented as key-value pairs <code>{&quot;key&quot;: value}</code> or as an ordered list of values. JSON is based on a subset of the JavaScript programming language syntax but is independent of any programming language.</p>
+<p>JSON files use a simple and intuitive syntax that is easy for humans to read and write. JSON files consist of objects enclosed in curly braces <code>{}</code> and arrays enclosed in square brackets <code>[]</code>. An object contains a set of key-value pairs, while an array contains an ordered list of values:</p>
+<pre><code class="language-json">{
+    &quot;records&quot;: [
+            {
+                &quot;time_ms&quot;: 1678554731011, 
+                &quot;objects&quot;: [
+                    {&quot;id&quot;: 40, &quot;x&quot;: 74.2, &quot;y&quot;: 3.51, &quot;z&quot;: -0.03},
+                    {&quot;id&quot;: 42, &quot;x&quot;: 69.2, &quot;y&quot;: 0.12, &quot;z&quot;: 0.02}
+                ]
+            },
+            {
+                &quot;time_ms&quot;: 1678554731022, 
+                &quot;objects&quot;: [
+                    {&quot;id&quot;: 40, &quot;x&quot;: 73.6, &quot;y&quot;: 3.48, &quot;z&quot;: 0.022},
+                    ...
+                ]
+            },
+        ]
+}
+</code></pre>
+<p>JSON files are commonly used in Web-technology to transmit data between a server and a web application, but they can also be used to store configuration data or other structured data types. It is supported by most modern programming languages and can be easily parsed and generated using libraries or built-in functions.</p>
+<p>Although JSON has many advantages, it also has some disadvantages:</p>
+<ul>
+<li>
+<p>Limited data types: JSON supports only a limited set of data types, such as strings, numbers, boolean values, and null. This means that more complex data structures, such as dates or binary data, need to be encoded or decoded using workarounds.</p>
+</li>
+<li>
+<p>Large file sizes: In some cases, JSON files can be larger than other data formats, such as CSV, because of its verbose nature. This can lead to slower data transfers or larger loading times.</p>
+</li>
+</ul>
+<p>A notable extension of JSON is JSONL, which stands for Line delimited JSON, where each line represents a single record (e.g. point in time).</p>
+<h3 id="xml-yaml-ini-env-"><a class="header" href="#xml-yaml-ini-env-">XML, YAML, INI, .env ...</a></h3>
+<p>There are many other formats used in web &amp; OS technology and are still existing in many software tools used in automotive industry. 
+Often they do not hold large arrays of data such hour long recordings with many variable, rather they are used as configuration files. There are some advantages and disadvantages compared to JSON, such as schema checks for XML or support for comments in YAML and <code>.env</code> files.</p>
+<p>When you design a complex system with external configuration, consider your stakeholders (users, consumers) and software interacting with your system in your choice.</p>
+<h2 id="binary-formats"><a class="header" href="#binary-formats">Binary formats</a></h2>
+<p>Binary formats have multiple advantages over text-based formats.
+In addition to the memory efficiency (i.e. floating point number as a 64-bit vs. multiple ASCII characters), 
+the values binary formats store are often <em>typed</em>, means there is only one
+way to store and interpret for client applications. This allows a more robust data-exchange and data management.</p>
+<h3 id="spreadsheet-formats-xlsx-odt"><a class="header" href="#spreadsheet-formats-xlsx-odt">Spreadsheet formats (xlsx, odt)</a></h3>
+<p>TODO</p>
+<h3 id="asam-mdf"><a class="header" href="#asam-mdf">ASAM MDF</a></h3>
+<p>MDF (Measurement Data Format) is a binary file format to store recorded or calculated data for post-measurement processing,
+off-line evaluation or long-term storage. The format has become a de-facto standard for measurement &amp; calibration systems (MC-systems), 
+but is also used in many other application areas.</p>
+<h3 id="parquet"><a class="header" href="#parquet">Parquet</a></h3>
+<p>Apache Parquet is a free and open-source column-oriented data storage format coming from the Apache Hadoop ecosystem<sup class="footnote-reference"><a href="#parquet-wiki">1</a></sup>.</p>
+<p>The values in each column are stored in contiguous memory locations, providing the following benefits<sup class="footnote-reference"><a href="#parquet-wiki">1</a></sup>:</p>
+<ul>
+<li>Column-wise compression is efficient in storage space<sup class="footnote-reference"><a href="#parquet-file-format">2</a></sup></li>
+<li>Encoding and compression techniques specific to the type of data in each column can be used</li>
+<li>Queries that fetch specific column values need not read the entire row, thus improving performance</li>
+</ul>
+<h3 id="protobuf-wip"><a class="header" href="#protobuf-wip">Protobuf (WIP)</a></h3>
+<h3 id="ros-messages-wip"><a class="header" href="#ros-messages-wip">ROS messages (WIP)</a></h3>
+<h3 id="avro-wip"><a class="header" href="#avro-wip">Avro (WIP)</a></h3>
+<p>Avro is a row-based storage format for Hadoop.</p>
+<h3 id="custom-wip"><a class="header" href="#custom-wip">Custom (WIP)</a></h3>
+<p>Proprietary binary formats ...</p>
+<h2 id="references-8"><a class="header" href="#references-8">References</a></h2>
+<p><sup class="footnote-reference"><a href="#parquet-wiki">1</a></sup> Wikipedia <em>Apache Parquet</em>, <a href="https://en.wikipedia.org/wiki/Apache_Parquet">link</a>
+<sup class="footnote-reference"><a href="#parquet-file-format">2</a></sup> Apache Parquet - File Format <a href="https://parquet.apache.org/docs/file-format/">link</a></p>
+<div style="break-before: page; page-break-before: always;"></div><h1 id="interpolation"><a class="header" href="#interpolation">Interpolation</a></h1>
+<h2 id="motivation-1"><a class="header" href="#motivation-1">Motivation</a></h2>
+<p>Interpolation (Latin for <em>inter</em> = between and <em>polire</em> = smoothing) is an essential technique for processing numerical data in the engineering domain. 
+Sensor output recorded over time as time-series usually requires interpolation to reduce the data amount, deal with missing values
+or as a first step prior to the merge with a another data source.</p>
+<p>Mathematically, given a list of \(N\) pairs \( (x_i, f_i) \ \forall i \in 0 \dots N-1 \) (often generated by an unknown function or process \(f(x)\)), 
+we are interested in the intermediate values (i..e \( x_* \)) which are not equal to any of \( x_i \). Those values are often referred as <em>query</em> points.
+Usually, the list is sorted by \( x \) in ascending manner.</p>
+<p><img src="data-preprocessing/interpolation.svg" alt="interpolation" /></p>
+<figcaption><center>
+<p><strong>Figure 1</strong>: Interpolation problem visualized.</p>
+</center></figcaption>
+<p>In case we are interested in values of \( x &lt; x_0 \) or \( x &gt; x_{N-1} \) we talk about <em>extrapolation</em>.</p>
+<p>Note, that the argument \( x \) can also be time \( t \), in that case we speak about temporal interpolation. Additionally, in this overview we mainly look at the one-dimensional (1D) case, more details on more dimensions can be found in the section below.</p>
+<p>There are multiple approaches to interpolate between known data points, which will be categorized and explained in the following sections.</p>
+<h2 id="methods"><a class="header" href="#methods">Methods</a></h2>
+<p>Across next section, we will introduce three approach families, the first two are separated by the number of points they use for the approximation of intermediate values. 
+The first category are the <em>proximity-based</em> methods, which take one or two sample points into account. 
+The second category take more then two points into account and will be called <em>global</em>, because they also consider values outside the close proximity.
+The third family is called <em>application-specific</em>, since some applications require a special consideration when dealing with intermediate values.</p>
+<h3 id="proximity-based"><a class="header" href="#proximity-based">Proximity-based</a></h3>
+<p>The proximity can be defined based on the numerical distance to the sample points (nearest-neighbour), or based on the position wrt to sample points.
+The algorithms in the proximity based method family select the value of the nearest point and does not consider the values of neighbouring points at all</p>
+<p><img src="data-preprocessing/interpolation_methods.svg" alt="interpolation_methods" /></p>
+<figcaption><center>
+<p><strong>Figure 2</strong>: Proximity based interpolation methods. Altered version of <sup class="footnote-reference"><a href="#interpolation_methods_image">1</a></sup> </p>
+</center></figcaption>
+<h4 id="nearest-neighbour"><a class="header" href="#nearest-neighbour">Nearest-Neighbour</a></h4>
+<p>Yielding a piecewise-constant interpolant around a single point. The algorithm is very simple to implement and is commonly used. (https://en.wikipedia.org/wiki/Nearest-neighbor_interpolation)</p>
+<h4 id="previousnext"><a class="header" href="#previousnext">Previous/Next</a></h4>
+<p>In some applications however, especially those dealing with time-series, taking the nearest sample means taking values in the future, which is not always suited. Therefore variation forward-fill ``ffill` exist, where \( f_i \) is true for all \( x \in [x_i, x_{i+1}[ \). </p>
+<p>The opposite, backward-fill, where \( f_{i+1} \) is true for all \( x \in [x_i, x_{i+1}[ \) is often used for XYZ.</p>
+<h4 id="linear"><a class="header" href="#linear">Linear</a></h4>
+<p>Linear interpolation assumes a linear relationship between two sample points, i.e.</p>
+<p>\[
+f(x) = ax +b = \frac{f_{i+1}- f_{i}}{x_{i+1}- xf_{i}} + f_{i} \ \forall x \in [x_i, x_{i+1}[
+\]</p>
+<h3 id="global"><a class="header" href="#global">Global</a></h3>
+<p>Global methods take into account more than two points around the query location \( x_* \). Some methods even take into account all available points.</p>
+<p><img src="data-preprocessing/global_interpolation.svg" alt="global_interpolation" /></p>
+<figcaption><center>
+<p><strong>Figure 3</strong>: Global interpolation methods. Images taken from Wikipedia.</p>
+</center></figcaption>
+<h4 id="polynomial"><a class="header" href="#polynomial">Polynomial</a></h4>
+<p>A \(n\)-degree polynomial \( p(x) = c_n x^n + c_{n-1} x^{n-1} + \dots + c_0 \) is fitted to multiple points around the query \( x_* \). Mathematically, we can use regression techniques to find the coefficients \( c_j \) or compute an exact solution taking \( n+1 \) points.</p>
+<h4 id="spline"><a class="header" href="#spline">Spline</a></h4>
+<p>Similar to linear interpolation which uses a linear function for each of intervals \( [x_i, x_{i+1}] \), spline interpolation uses low-degree polynomials in each of the intervals, and chooses the polynomial pieces such that they fit smoothly together. The resulting function is called a spline.</p>
+<p>The <em>fitting smoothly</em> requirement is ensured via mathematical constrains to the derivatives, such as \( p_i'(x_i) = p_{i+1}'(x_i) \land p_i''(x_i) = p_{i+1}''(x_i)  \) <sup class="footnote-reference"><a href="#spline">2</a></sup></p>
+<p>This property can be helpful when interpolating physical quantities, where changes happen smoothly.</p>
+<h4 id="regression"><a class="header" href="#regression">Regression</a></h4>
+<p>Instead of taking a \(n\)-degree polynomial, we could potentially use any parametrical function and fit the data to it. One interesting method is the <em>Gaussian-Process</em> Regression, an machine learning, where in addition to the interpolated function value \(f_*\) the uncertainty estimate is computed.</p>
+<h4 id="aggregation"><a class="header" href="#aggregation">Aggregation</a></h4>
+<p>For cases where the array of query points \( x_* \) have lower temporal frequency than the sample points,
+i.e. between each query point there are multiple sample points, statistical metrics such as arithmetic mean, median or \(p\)-percentile can be computed.</p>
+<p>The following equation computes the average aggregation for query points \( x_* \) with a sampling distance \( S \) between each other.</p>
+<p>\[
+f_* = avg( x_* ) = \frac 1 N \sum_{x_i \in [x_* - \frac{s}{2}, x_* + \frac{s}{2}]} f_i
+\]</p>
+<p>The aggregation takes all sample points which fall in the interval \( \pm S \) and takes the average of the function values.</p>
+<p>This interpolation technique can have multiple purposes: mean or median can be used for summarizing noisy measurements in timeseries data. Aggregations such as <em>min</em>, <em>max</em> or <em>percentile</em> allow emphasizing on critical values, such as potholes while sampling the road surface.</p>
+<h3 id="application-specific"><a class="header" href="#application-specific">Application-specific</a></h3>
+<p>For some applications assuming a polynomial or linear function is not enough. For physical systems and noisy data, <em>Kalman Filter</em><sup class="footnote-reference"><a href="#kalman_filter">3</a></sup> can be used for estimating intermediate values. To apply the Kalman filter, we need a mathematical state-space equation system describing the physics behind the temporal dynamics and the relationship to the measurement. This methodology is also called <em>Kalman Smoothing</em><sup class="footnote-reference"><a href="#kalman_smoothing">4</a></sup>.</p>
+<p>An alternative, statistical, method is to use Gaussian Process Regression. In addition to the function value \( f_* \) we can compute an uncertainty estimate \( \sigma_* \).</p>
+<p>When dealing with transformations between coordinate systems, represented as quaternion, a method called <em>SLERP</em> is used, assuming rotation with uniform angular velocity around a fixed rotation axis.<sup class="footnote-reference"><a href="#slerp">5</a></sup></p>
+<h2 id="implementation"><a class="header" href="#implementation">Implementation</a></h2>
+<p>A majority of mentioned neighborhood- and global methods are implemented within the <code>pandas.DataFrame.resample</code> functionality.
+See <a href="https://pandas.pydata.org/docs/reference/resampling.html#upsampling">here</a> for an overview of available methods.</p>
+<p>For some of the methods, such as splines or polynomial interpolation, pandas falls back to <code>scipy</code>'s <code>interpolate</code> functionality.
+One of them is <code>scipy.interpolate.interp1d</code> (<a href="https://docs.scipy.org/doc/scipy/reference/generated/scipy.interpolate.interp1d.html">source</a>).</p>
+<h2 id="dimensionality"><a class="header" href="#dimensionality">Dimensionality</a></h2>
+<p>WIP</p>
+<h2 id="references-9"><a class="header" href="#references-9">References</a></h2>
+<p><sup class="footnote-reference"><a href="#interpolation_methods_image">1</a></sup> By Cmglee - Own work, CC BY-SA 4.0, <a href="https://commons.wikimedia.org/w/index.php?curid=53064904">link</a></p>
+<p><sup class="footnote-reference"><a href="#spline">2</a></sup> <a href="https://en.wikipedia.org/wiki/Spline_interpolation#Introduction">Wikipedia: Spline Interpolation</a></p>
+<p><sup class="footnote-reference"><a href="#kalman_filter">3</a></sup> <a href="https://en.wikipedia.org/wiki/Kalman_filter">Wikipedia: Kalman Filter</a></p>
+<p><sup class="footnote-reference"><a href="#kalman_smoothing">4</a></sup> <a href="https://en.wikipedia.org/wiki/Kalman_filter#Fixed-lag_smoother">Wikipedia: Kalman Filter - Fixed-lag smoother</a></p>
+<p><sup class="footnote-reference"><a href="#slerp">5</a></sup> <a href="https://en.wikipedia.org/wiki/Slerp#Quaternion_Slerp">Wikipedia: Quaternion Slerp</a></p>
+<div style="break-before: page; page-break-before: always;"></div><h1 id="merging-datasets"><a class="header" href="#merging-datasets">Merging datasets</a></h1>
+<h2 id="motivation-2"><a class="header" href="#motivation-2">Motivation</a></h2>
+<p>Merging two time series datasets with varying sampling frequencies can be a complex and challenging task, 
+yet it is a common problem in many fields such as finance, economics, and engineering. 
+Time series data refers to a sequence of observations taken at regular intervals over time. 
+However, in real-world scenarios, it is not uncommon to have two or more time series datasets collected at different sampling frequencies (as in Fig. 1), 
+making it difficult to combine them into a single dataset for analysis.</p>
+<p>The problem of merging time series data with varying sampling frequencies arises because the data points in each dataset are not necessarily aligned, 
+leading to gaps or overlapping time periods. To merge such datasets, we need to decide how to handle these gaps and overlaps while preserving the integrity of the data. 
+Moreover, merging time series datasets requires careful consideration of the data quality, accuracy, and completeness, as well as the statistical properties of the data.</p>
+<p>In this chapter we will deal with merging of multiple datasets with varying sample frequencies into one dataset with a predefined frequency \( f_C \)  which can be used for further investigation or analysis.</p>
+<p align="center">
+  <img src="data-preprocessing/./merge_datasets.svg" />
+</p>
+<figcaption><center>
+<p><strong>Figure 1</strong>: Illustration of the merging problem discussed in this chapter. 
+Dataset \( \mathbf A \) with \( N \) columns is sampled with a a frequency of \( f_A = 1 Hz \).
+Dataset \( \mathbf B \) (\( M \) columns) which covers similar time period, is sampled with \( f_B = 4 Hz \).
+The goal is to create a dataset C with a predefined frequency \( f_C \) which contains the information from the columns of the source datasets.</p>
+</center></figcaption>
+<h2 id="methodology"><a class="header" href="#methodology">Methodology</a></h2>
+<p>We can solve the above mentioned problem by applying the following three steps:</p>
+<ol>
+<li>Decide about the target frequency \( f_C \) </li>
+<li>Interpolate (Up/Downsample the data), decide for each column individually</li>
+<li>Join the data by time</li>
+</ol>
+<p>In the subsequent sections, we will discuss some details crucial for each step.</p>
+<h3 id="choice-of-the-target-frequency"><a class="header" href="#choice-of-the-target-frequency">Choice of the target frequency</a></h3>
+<p>Instead of randomly selecting one of the frequencies \( f_A \) or \( f_B \) we can base our decision
+on following criteria:</p>
+<ul>
+<li><strong>Information loss</strong>: Especially when working with high frequency data such as sound waves or road oscillations,
+you want to keep the information contained in the signal. As <em>Nyquist–Shannon sampling theorem</em> states, in order to capture information from a signal represented in a specific frequency band, you need to sample the data at least twice this frequency.<sup class="footnote-reference"><a href="#nyquist-shannon">1</a></sup> For an periodic bump in the road happening each \( d = 10m \) with our vehicle driving \( v_0 = 33.3 \frac m s = 120 \frac{km}{h} \), we need to sample higher than \( f_{C, min} = 2 \frac{v_0}{d} = 6.6 Hz \).</li>
+<li><strong>Computational resources</strong>: depending on the computation capacity of your machine or cluster of machines, 
+you may consider a smaller target frequency to fit the data into memory or to limit the time needed for a computation.</li>
+<li><strong>Consumer applications</strong>: depending on your use-case with the merged dataset, you may want to decrease or increase the frequency - usually reporting applications
+use a smaller frequency as those used for video rendering where a frequency of min 30fps is desired</li>
+</ul>
+<h3 id="interpolation-1"><a class="header" href="#interpolation-1">Interpolation</a></h3>
+<p>As discussed in the <a href="data-preprocessing/./interpolation.html">Interpolation</a> chapter, you need to decide for a suited interpolation method. A good first choice for physical signals is the <code>linear</code>, for categorical signals <code>nearest-neighbor</code> interpolation method.</p>
+<p>In the context of perception and object tracking (as discussed in chapter TODO), you have to interpolate for each object ID individually. Interpolation without that consideration may lead to data loss, since the perception often tracks multiple objects at the same point in time.</p>
+<h3 id="join-the-data"><a class="header" href="#join-the-data">Join the data</a></h3>
+<p>Having both datasets A and B with the same time-stamps as indices we can apply a <code>JOIN</code>-like operation. Here we can to decide for <code>LEFT</code>, <code>RIGHT</code> or <code>INNER</code>-join depending on the application and use case:</p>
+<ul>
+<li>
+<p><code>INNER</code>: returns records when there is a match in both tables.</p>
+</li>
+<li>
+<p><code>LEFT</code>: returns all records from the left table, even if there are no matches in the right table.</p>
+</li>
+<li>
+<p><code>RIGHT</code>: returns all records from the right table, even if there are no matches in the left table.</p>
+</li>
+</ul>
+<p>For the latter two cases, note that the columns of the missing records will be filled with placeholder value such as <code>NaN</code> (not a number).</p>
+<h2 id="implementation-1"><a class="header" href="#implementation-1">Implementation</a></h2>
+<p>The pandas library provides an extensive set of functions for resampling, grouping (by <code>ID</code> for object-lists) and joining the data:</p>
+<ul>
+<li><strong>resampling</strong>: <a href="https://pandas.pydata.org/docs/reference/api/pandas.DataFrame.asfreq.html"><code>pd.DataFrame.asfreq</code></a>, <a href="https://pandas.pydata.org/docs/reference/api/pandas.DataFrame.resample.html"><code>pd.DataFrame.resample</code></a></li>
+<li><strong>joining</strong>: <a href="https://pandas.pydata.org/docs/reference/api/pandas.merge.html"><code>pd.merge</code></a>, <a href="https://pandas.pydata.org/docs/reference/api/pandas.DataFrame.join.html"><code>pd.DataFrame.join</code></a></li>
+<li><strong>grouping</strong>: <a href="https://pandas.pydata.org/docs/reference/api/pandas.DataFrame.groupby.html"><code>pd.DataFrame.groupby</code></a></li>
+</ul>
+<p>In addition, combined functions exist, such as <a href="https://pandas.pydata.org/docs/reference/api/pandas.merge_asof.html"><code>pd.merge_asof</code></a> which combines both the resampling and joining in one operation.</p>
+<pre><code class="language-python"># we assume both dataframes have a datetime-index
+# the resampling is done to the floor of 10ms
+df_a = df_a.resample('10ms').interpolate('linear')
+df_b = df_b.resample('10ms').nearest()
+
+df_c = df_a.join(df_b, how='left')
+</code></pre>
+<h2 id="references-10"><a class="header" href="#references-10">References</a></h2>
+<p><sup class="footnote-reference"><a href="#nyquist-shannon">1</a></sup> Wikipedia - <em>Nyquist–Shannon sampling theorem</em> (<a href="https://en.wikipedia.org/wiki/Nyquist%E2%80%93Shannon_sampling_theorem">link</a>)</p>
+<div style="break-before: page; page-break-before: always;"></div><h1 id="overview-2"><a class="header" href="#overview-2">Overview</a></h1>
+<p>Perception is the process by which robots are able to gather and interpret data from their environment using sensors and algorithms. Perception is a crucial component of robotics, as it allows robots to understand and respond to their surroundings, enabling them to perform tasks autonomously and interact with humans and other machines.</p>
+<p>Robotics perception involves the use of a wide range of sensors, including cameras, LIDAR, RADAR, and other types of sensors that allow robots to detect and interpret visual, auditory, and tactile information. By processing and combining this heterogenous sensory data using advanced algorithms, robots can determine the location and orientation of objects in their environment, identify and track moving objects, and detect obstacles and other potential hazards. The outputs can be summarized as <em>environment model</em> which is a set of one or multiple representations (Fig. 1).</p>
+<p align="center">
+  <img src="perception/sensor-fusion-cariad.png" width="90%"/>
+</p>
+<figcaption><center>
+<p><strong>Figure 1</strong>: Simplified perception overview with multiple sensor modalities combined together to an environment model. The output is used by the planning stack. (Source: CARIAD<sup class="footnote-reference"><a href="#cariad-sensor-fusion">1</a></sup>)</p>
+</center></figcaption>
+<p>One of the key challenges in robotics perception is developing algorithms that are capable of interpreting the complex and often ambiguous data generated by these sensors. This requires sophisticated machine learning techniques, including computer vision and neural networks. Furthermore,
+those algorithms shall run on embedded hardware, which often less compute than a consumer grade computer.</p>
+<h2 id="sensor-data"><a class="header" href="#sensor-data">Sensor data</a></h2>
+<p>In the majority of cases, a sensor device has its own signal processing unit, it provides the tracked objects as lists of coordinates and 
+sizes as an <em>object list</em>:</p>
+<pre><code class="language-python">[
+    Object(id=12, x=100.2, y=-5.2, z=0.4, 
+      width=2.1, length=5.1, height=1.4, lifetime=10.2),
+    Object(id=42,x=110.5, y=6.7, z=0.31, 
+      width=2.2, length=4.9, height=1.6, lifetime=0.0),
+    ...
+]
+</code></pre>
+<p>The goal of the sensor fusion is to combine multiple (per sensor) object lists from multiple sensors to a single, <em>global</em> object list.</p>
+<h2 id="references-11"><a class="header" href="#references-11">References</a></h2>
+<p><sup class="footnote-reference"><a href="#cariad-sensor-fusion">1</a></sup> CARIAD - <em>How to reach higher automation levels with AI-based sensor fusion?</em> (<a href="https://cariad.technology/de/en/news/stories/sensor-fusion-introduction.html">link</a>)</p>
+<div style="break-before: page; page-break-before: always;"></div><h1 id="radar"><a class="header" href="#radar">RADAR</a></h1>
+<h2 id="overview-3"><a class="header" href="#overview-3">Overview</a></h2>
+<p>Radar sensors are electronic devices that use radio waves to detect and locate objects in their surroundings. The term &quot;radar&quot; stands for &quot;radio detection and ranging,&quot; and the technology has been in use for many years in a variety of applications, from military defense to weather forecasting and air traffic control.</p>
+<p align="center">
+  <img src="perception/radar.jpg" width="90%"/>
+</p>
+<figcaption><center>
+<p><strong>Figure 1</strong>: Automotive-grade RADAR sensor (Source: Bosch<sup class="footnote-reference"><a href="#bosch-radar">1</a></sup>)</p>
+</center></figcaption>
+<p>In robotics, radar sensors are typically used to provide information about the robot's environment, such as the location and movement of nearby objects. The sensors emit radio waves, which bounce off nearby objects and are then detected by the sensor. By measuring the time it takes for the waves to bounce back, the sensor can determine the distance to the object.</p>
+<p>One of the key advantages of radar sensors is that they are able to operate in a wide range of environments and weather conditions, including rain, fog, and snow. This makes them particularly useful in outdoor applications, such as autonomous vehicles<sup class="footnote-reference"><a href="#bosch-radar">1</a></sup> and drones.</p>
+<h2 id="radar-equation"><a class="header" href="#radar-equation">Radar equation</a></h2>
+<p>In order to be detected by the radar sensor system, every object, regardless of the method used,
+must reflect the emitted waves of wavelength \(\lambda \). The reflected power \(P_r \) (received) is described
+by the radar equation<sup class="footnote-reference"><a href="#intro-radar-systems-skolnik">2</a></sup>:</p>
+<p>\[
+P_r = \frac{P_t G_t G_r \lambda^2 \sigma}{(4 \pi)^3 R^4}
+\]</p>
+<p>The largest impact on the reflected power is the distance \(R\) between the antenna and the target.
+Thus there are limits on the maximum detectable (visible) distance given by the radar hardware. Typical 
+(automotive) radar sensors provide a range of 200m.<sup class="footnote-reference"><a href="#bosch-radar">1</a></sup><sup class="footnote-reference"><a href="#continental-radar">3</a></sup></p>
+<p>The characteristic of the particular target is described with the <em>radar cross section</em> (RCS) σ which
+is range-independent. It has units of area (m2, dBsm or dBm2) and is a measure of its &quot;visibility&quot; or size as
+seen by the radar<sup class="footnote-reference"><a href="#intro-radar-systems-skolnik">2</a></sup>. Higher values indicate high reflectivity.</p>
+<p>In order to work with radar data it is helpful to know the typical RCS ranges for different targets
+in various orientations. Typically, we can expect a range from −10dBm² to 25dBm² in a highway environment.</p>
+<h2 id="doppler-effect-wip"><a class="header" href="#doppler-effect-wip">Doppler effect (WIP)</a></h2>
+<h2 id="fmcw-radar-wip"><a class="header" href="#fmcw-radar-wip">FMCW Radar (WIP)</a></h2>
+<p align="center">
+  <img src="perception/cw-radar.png" width="90%"/>
+</p>
+<figcaption><center>
+<p><strong>Figure 2</strong>: CW Radar (Source: Wikipedia<sup class="footnote-reference"><a href="#cw-radar-wiki">4</a></sup>)</p>
+</center></figcaption>
+<p align="center">
+  <img src="perception/range-doppler-3-targets.png" width="90%"/>
+</p>
+<figcaption><center>
+<p><strong>Figure 3</strong>: Range-Doppler matrix with 3 moving targets. (Source: Mathworks)</p>
+</center></figcaption>
+<h2 id="references-12"><a class="header" href="#references-12">References</a></h2>
+<p><sup class="footnote-reference"><a href="#bosch-radar">1</a></sup> Robert Bosch GmbH - <em>Front Radar Sensor</em> (<a href="https://www.bosch-mobility.com/en/solutions/sensors/front-radar-sensor/">link</a>)</p>
+<p><sup class="footnote-reference"><a href="#intro-radar-systems-skolnik">2</a></sup> Merrill I. Skolnik. Introduction to radar systems. McGraw-Hill electrical engineering series. 2001</p>
+<p><sup class="footnote-reference"><a href="#continental-radar">3</a></sup> Continental - Advanced Radar Sensor – ARS510 (<a href="https://www.continental-automotive.com/DE/Passenger-Cars/Autonomous-Mobility/Enablers/Radars/Long-Range-Radar/ARS510">link</a>)</p>
+<p><sup class="footnote-reference"><a href="#cw-radar-wiki">4</a></sup> Wikipedia <em>Continuous-wave radar</em> (<a href="https://en.wikipedia.org/wiki/Continuous-wave_radar">link</a>)</p>
+<div style="break-before: page; page-break-before: always;"></div><h1 id="lidar"><a class="header" href="#lidar">LIDAR</a></h1>
+<div style="break-before: page; page-break-before: always;"></div><h1 id="sensor-fusion"><a class="header" href="#sensor-fusion">Sensor Fusion</a></h1>
+<div style="break-before: page; page-break-before: always;"></div><h1 id="fusion-architectures"><a class="header" href="#fusion-architectures">Fusion Architectures</a></h1>
+<div style="break-before: page; page-break-before: always;"></div><h1 id="fundamentals"><a class="header" href="#fundamentals">Fundamentals</a></h1>
+<p>This chapter provides a high level overview about the mathematical description of the Earth.</p>
+<h2 id="geographic-coordinates"><a class="header" href="#geographic-coordinates">Geographic coordinates</a></h2>
+<p>In order to communicate locations geographic coordinates on our planet, a pair of <strong>latitude</strong> and <strong>longitude</strong> are used (Fig. 1).</p>
+<p align="center">
+  <img src="maps/geographic-coords-wiki.svg" width="80%"/>
+</p>
+<figcaption><center>
+<p><strong>Figure 1</strong>: Geographic coordinates overview with <span style="color:blue">parallels</span> (blue) and <span style="color:red">meridians</span> (red). The prime meridian (longitude 0°) intersects <a href="https://en.wikipedia.org/wiki/Greenwich">Greenwich, United Kingdom</a>.
+Edited Image from: <a href="https://en.wikipedia.org/wiki/Geographic_coordinate_system">Wikipedia</a></p>
+</center></figcaption>
+<p>Note, that the pair of coordinates is usually reported with longitude first in geographic software applications and tools, since east-west looks like an x coordinate.<sup class="footnote-reference"><a href="#maps-book">1</a></sup></p>
+<h2 id="geoid"><a class="header" href="#geoid">Geoid</a></h2>
+<p>An important concept to understand is that, the Earth's surface is irregular. Its surface can be described
+with a <strong>geoid</strong>, defined as the shape of the surface of the earth if it were completely covered with water (Fig. 1).<sup class="footnote-reference"><a href="#maps-book">1</a></sup></p>
+<p>The models taught in school, like Earth being a sphere or a ellipsoid (obtained by rotating 
+an ellipse about one of its principal axes) are sufficient to explain many 
+things like movement of the planets, sunrise, horizon etc.</p>
+<p>Fig. 2 shows an exaggerated shape of the Earth with vertical scaling of the heights and lows.</p>
+<p align="center">
+  <img src="maps/geoid.jpg" width="95%"/>
+</p>
+<figcaption><center>
+<p><strong>Figure 2</strong>: Earth geoid model (Source: <a href="https://enterprise-insights.dji.com/blog/geoid-vs-ellipsoid">DJI</a>)</p>
+</center></figcaption>
+<p>The study of the Earth’s surface (i.e. geoid) is called <strong>geodesy</strong>.</p>
+<p>In order to deal with the complex shape mathematically, <strong>geodetic systems</strong> or <strong>geodetic datums</strong> are introduced.</p>
+<h2 id="geodetic-datum"><a class="header" href="#geodetic-datum">Geodetic datum</a></h2>
+<p>A geodetic datum is a reference coordinate system, describing the Earth's geoid as a 3-dimensional mathematical shape (e.g. sphere or ellipsoid).</p>
+<p>In Wikipedia, it is defined as following<sup class="footnote-reference"><a href="#geodetic-datum-wiki">2</a></sup>:</p>
+<blockquote>
+<p>A geodetic datum [...] is a reference frame for precisely representing the position of locations on Earth or other planetary bodies by means of geodetic coordinates.</p>
+</blockquote>
+<p>In Fig. 3 the ellipsoid from the widely used 1984 World Geodetic System (WGS84) is visualized.
+The coordinate origin of WGS84 is meant to be located at the Earth's center of mass;
+the uncertainty is believed to be less than 2 cm. Modern navigation systems based on GPS use WGS84.<sup class="footnote-reference"><a href="#world-geodetic-system-wiki">3</a></sup></p>
+<p align="center">
+  <img src="maps/wgs84-wiki.svg" width="40%"/>
+</p>
+<figcaption><center>
+<p><strong>Figure 3</strong>: 1984 World Geodetic System Ellipsoid with Equatorial (a), polar (b) and mean Earth radii.<sup class="footnote-reference"><a href="#geodetic-datum-wiki">2</a></sup></p>
+</center></figcaption>
+<p>Other satellite navigation systems, such as Galileo (European Union) or GLONASS (Russia)
+use other geodetic datums such as  Galileo Terrestrial Reference Frame (GTRF) 
+or Parametry Zemli 1990 (Parameters of the Earth 1990) (PZ-90) respectively.<sup class="footnote-reference"><a href="#esa-reference-frames">4</a></sup></p>
+<p>In the Fig. 4 the definition of geographic coordinates on a geodetic datum is visualized. Note that the latitude \( \phi \) is defined by the equatorial plane and a line that is normal to the reference ellipsoid. </p>
+<p align="center">
+  <img src="maps/geodetic_coordinates.svg" width="40%"/>
+</p>
+<figcaption><center>
+<p><strong>Figure 4</strong>: Geodetic coordinates: longitude \( \lambda \), latitude \( \phi \) and altitude \( h \).<sup class="footnote-reference"><a href="#geodetic-coords-wiki">5</a></sup></p>
+</center></figcaption>
+<p>Contrary to the <em>geodetic</em> latitude (Fig. 4), the <em>geocentric</em> latitude is the angle between the equatorial plane and the radius from the centre to a point of interest. On its own, the term &quot;latitude&quot; normally refers to the geodetic latitude.<sup class="footnote-reference"><a href="#latitude-wiki">6</a></sup></p>
+<p>Note, that in some applications and countries, different geodetic datums can be used. For example, cartographers in Europe may use European Datum 1950 (ED50) whereas US-counterparts use North American Datum 1927 (NAD27) which approximates the USA better. See Fig. 5 for a visual explanation.</p>
+<p align="center">
+  <img src="maps/datums.png" width="40%"/>
+</p>
+<figcaption><center>
+<p><strong>Figure 5</strong>: Depending of the area of interest, different datums may be used. NAD27 approximates the left side of the geoid with a smaller error than ED50. Contrary to that, the right side is better modeled by ED50. <a href="https://www.e-education.psu.edu/geog862/book/export/html/1669">Image source</a></p>
+</center></figcaption>
+<h2 id="earth-centered-earth-fixed-coordinate-system-ecef"><a class="header" href="#earth-centered-earth-fixed-coordinate-system-ecef">Earth-centered, Earth-fixed coordinate system (ECEF)</a></h2>
+<p>As with any spatial reference system, ECEF consists of an abstract coordinate system (in this case, a conventional three-dimensional right-handed system), and a geodetic datum that binds the coordinate system to actual locations on the Earth.<sup class="footnote-reference"><a href="#ecef-wiki">7</a></sup></p>
+<p align="center">
+  <img src="maps/ecef-wiki.svg" width="80%"/>
+</p>
+<figcaption><center>
+<p><strong>Figure 6</strong>: Earth-centered, Earth-fixed coordinate system together with geodetic coordinates. Image from <sup class="footnote-reference"><a href="#ecef-wiki">7</a></sup></p>
+</center></figcaption>
+<p>The ECEF coordinate system has the following parameters:</p>
+<ul>
+<li>The origin at the center of the chosen ellipsoid. In WGS84, this is center of mass of the Earth.</li>
+<li>The Z axis is the line between the North and South Poles, with positive values increasing northward.</li>
+<li>The X axis is in the plane of the equator, passing through the origin and extending from 180° longitude (negative) to the prime meridian (positive)</li>
+<li>The Y axis is also in the plane of the equator, passing through extending from 90°W longitude (negative) to 90°E longitude (positive)</li>
+</ul>
+<h2 id="conversion-ecef--geodetic"><a class="header" href="#conversion-ecef--geodetic">Conversion ECEF ↔ Geodetic</a></h2>
+<p>Given geodetic coordinates (longitude \( \lambda \), latitude \( \phi \) and altitude \( h \)), 
+one can compute the metric ECEF coordinates of the point as follows<sup class="footnote-reference"><a href="#geodetic-coords-wiki">5</a></sup>:</p>
+<p>\[
+X = (N + h) \cos{\phi} \cos{\lambda} \\
+Y = (N + h) \cos{\phi}\sin{\lambda} \\
+Z = (\frac{b^2}{a^2} N + h) \sin{\phi}
+\]</p>
+<p>where \( a, b \) are the equatorial radius (semi-major axis) and the polar radius (semi-minor axis), respectively. N is the prime vertical radius of curvature, function of latitude \( \phi \):</p>
+<p>\[
+N = \frac{a^2}{\sqrt{a^2 \cos^2 \phi + b^2 \sin^2 \phi}}
+\]</p>
+<p>Those equations are implemented in <code>pyproj</code>:</p>
+<pre><code class="language-python">import pyproj
+
+ecef = pyproj.Proj(proj='geocent', ellps='WGS84', datum='WGS84')
+lla = pyproj.Proj(proj='latlong', ellps='WGS84', datum='WGS84')
+
+# convert (WGS84 -&gt; ECEF)
+x, y, z = pyproj.transform(lla, ecef, lon, lat, alt, radians=False)
+
+# convert (ECEF -&gt; WGS84)
+lon, lat, alt = pyproj.transform(ecef, lla, x, y, z, radians=False)
+</code></pre>
+<h2 id="local-east-north-up-enu-coordinates"><a class="header" href="#local-east-north-up-enu-coordinates">Local east, north, up (ENU) coordinates</a></h2>
+<p>In many targeting and tracking applications the local East, North, Up (ENU) Cartesian coordinate system (Fig. 7) is far more intuitive and practical than ECEF or Geodetic coordinates. The local ENU coordinates are formed from a plane tangent to the Earth's surface fixed to a specific location and hence it is sometimes known as a &quot;Local Tangent&quot; or &quot;local geodetic&quot; plane. By convention the east axis is labeled x, the north y and the up z.<sup class="footnote-reference"><a href="#local-tangent-wiki">8</a></sup></p>
+<p align="center">
+  <img src="maps/enu-wiki.svg" width="50%"/>
+</p>
+<figcaption><center>
+<p><strong>Figure 7</strong>: The east north up (ENU) system together with ECEF and geodetic coordinates.<sup class="footnote-reference"><a href="#ecef-wiki">7</a></sup></p>
+</center></figcaption>
+<p>In Python, the transformation between geodetic and ENU coordinates is implemented in <code>pymap3d</code> library (<a href="https://geospace-code.github.io/pymap3d/">docs</a>):</p>
+<pre><code class="language-python">import pymap3d as pm
+
+# ENU coordinate origin (Zermatt, Switzerland)
+lat0 = 46.017 # deg
+lon0 = 7.750  # deg
+h0 = 1673     # meters
+
+# The point of interest
+lat = 45.976  # deg
+lon = 7.658   # deg
+h = 4531      # meters
+
+# by default uses the ellipsoid from WGS-84
+pm.geodetic2enu(lat, lon, h, lat0, lon0, h0)
+# returns: (-7134.757195979863, -4556.321513844541, 2852.3904239436915)
+</code></pre>
+<p>In MATLAB, <code>geodetic2enu</code> function (<a href="https://de.mathworks.com/help/map/ref/geodetic2enu.html">docs</a>) can be used.</p>
+<h2 id="references-13"><a class="header" href="#references-13">References</a></h2>
+<p><sup class="footnote-reference"><a href="#maps-book">1</a></sup> Peter Anthamatten - <em>How to Make Maps, An Introduction to Theory and Practice of Cartography</em> (2021)</p>
+<p><sup class="footnote-reference"><a href="#geodetic-datum-wiki">2</a></sup> https://en.wikipedia.org/wiki/Geodetic_datum</p>
+<p><sup class="footnote-reference"><a href="#world-geodetic-system-wiki">3</a></sup> Wikipedia - World GeoDetic System https://en.wikipedia.org/wiki/World_Geodetic_System</p>
+<p><sup class="footnote-reference"><a href="#esa-reference-frames">4</a></sup> Reference Frames in GNSS https://gssc.esa.int/navipedia/index.php/Reference_Frames_in_GNSS</p>
+<p><sup class="footnote-reference"><a href="#geodetic-coords-wiki">5</a></sup> Wikipedia - Geodetic coordinates https://en.wikipedia.org/wiki/Geodetic_coordinates</p>
+<p><sup class="footnote-reference"><a href="#latitude-wiki">6</a></sup> Wikipedia - Latitude  https://en.wikipedia.org/wiki/Latitude</p>
+<p><sup class="footnote-reference"><a href="#ecef-wiki">7</a></sup> Wikipedia - Earth-centered, Earth-fixed coordinate system https://en.wikipedia.org/wiki/Earth-centered,_Earth-fixed_coordinate_system</p>
+<p><sup class="footnote-reference"><a href="#local-tangent-wiki">8</a></sup> Wikipedia - Local tangent plane coordinates https://en.wikipedia.org/wiki/Local_tangent_plane_coordinates</p>
+<div style="break-before: page; page-break-before: always;"></div><h1 id="gps"><a class="header" href="#gps">GPS</a></h1>
+<p>WIP</p>
+<div style="break-before: page; page-break-before: always;"></div><h1 id="projections"><a class="header" href="#projections">Projections</a></h1>
+<div style="break-before: page; page-break-before: always;"></div><h1 id="spatial-indexing"><a class="header" href="#spatial-indexing">Spatial Indexing</a></h1>
+<p>WIP</p>
+<div style="break-before: page; page-break-before: always;"></div><h1 id="open-street-maps"><a class="header" href="#open-street-maps">Open Street Maps</a></h1>
+<div style="break-before: page; page-break-before: always;"></div><h1 id="in-vehicle-networks"><a class="header" href="#in-vehicle-networks">In-vehicle Networks</a></h1>
+<div style="break-before: page; page-break-before: always;"></div>
+                    </main>
+
+                    <nav class="nav-wrapper" aria-label="Page navigation">
+                        <!-- Mobile navigation buttons -->
+
+
+                        <div style="clear: both"></div>
+                    </nav>
+                </div>
+            </div>
+
+            <nav class="nav-wide-wrapper" aria-label="Page navigation">
+
+            </nav>
+
+        </div>
+
+
+
+
+        <script>
+            window.playground_copyable = true;
+        </script>
+
+
+        <script src="elasticlunr.min.js"></script>
+        <script src="mark.min.js"></script>
+        <script src="searcher.js"></script>
+
+        <script src="clipboard.min.js"></script>
+        <script src="highlight.js"></script>
+        <script src="book.js"></script>
+
+        <!-- Custom JS scripts -->
+
+        <script>
+        window.addEventListener('load', function() {
+            MathJax.Hub.Register.StartupHook('End', function() {
+                window.setTimeout(window.print, 100);
+            });
+        });
+        </script>
+
+    </div>
+    </body>
+</html>

@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN" "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd">
+<!-- Created with Vectornator (http://vectornator.io/) -->
+<svg height="100%" stroke-miterlimit="10" style="fill-rule:nonzero;clip-rule:evenodd;stroke-linecap:round;stroke-linejoin:round;" version="1.1" viewBox="0 0 800 600" width="100%" xml:space="preserve" xmlns="http://www.w3.org/2000/svg" xmlns:vectornator="http://vectornator.io" xmlns:xlink="http://www.w3.org/1999/xlink">
+<defs/>
+<g id="Ebene-1" vectornator:layerName="Ebene 1">
+<g opacity="1">
+<path d="M246.191 514.119C226.959 514.275 68.7086 515.556 68.7086 515.556C68.7086 515.556 70.1212 357.306 70.2929 338.073" fill="none" stroke="#000000" stroke-linecap="butt" stroke-linejoin="round" stroke-width="5"/>
+<g fill="#000000" stroke="none">
+<path d="M87.7253 345.729L70.4937 315.574L52.7266 345.417L87.7253 345.729Z" fill="#000000"/>
+<path d="M238.833 531.68L268.691 513.937L238.55 496.681L238.833 531.68Z" fill="#000000"/>
+</g>
+</g>
+<g opacity="1">
+<path d="M711.962 114.169C701.782 130.488 618.023 264.76 618.023 264.76C618.023 264.76 577.776 238.692 535.808 211.51C535.808 211.51 485.249 178.762 469.037 168.262" fill="none" stroke="#000000" stroke-linecap="butt" stroke-linejoin="round" stroke-width="5"/>
+<g fill="#000000" stroke="none">
+<path d="M484.846 157.651L450.152 156.03L465.819 187.027L484.846 157.651Z" fill="#000000"/>
+<path d="M722.84 129.795L723.87 95.0788L693.144 111.27L722.84 129.795Z" fill="#000000"/>
+</g>
+</g>
+<g opacity="1">
+<path d="M597.879 272.658C554.852 292.265 72.9947 511.842 72.9947 511.842" fill="none" stroke="#ec0014" stroke-linecap="butt" stroke-linejoin="round" stroke-width="5"/>
+<g fill="#ec0014" stroke="none">
+<path d="M598.311 291.692L618.353 263.328L583.797 259.843L598.311 291.692Z" fill="#ec0014"/>
+</g>
+</g>
+<g opacity="1">
+<path d="M568.181 128.364C586.827 119.735 613.59 112.093 624.783 131.999C641.272 161.323 619.524 172.001 603.532 180.969" fill="none" stroke="#3897f1" stroke-linecap="butt" stroke-linejoin="round" stroke-width="5"/>
+<g fill="#3897f1" stroke="none">
+<path d="M566.289 109.419L548.484 139.239L583.205 140.06L566.289 109.419Z" fill="#3897f1"/>
+</g>
+</g>
+</g>
+<g id="Ebene-2" vectornator:layerName="Ebene 2"/>
+</svg>
