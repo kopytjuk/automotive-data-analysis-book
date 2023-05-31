@@ -22,8 +22,6 @@ to further processing.
 
 No matter which timezone you are in, you can always represent the time in a standardized way by using the Coordinated Universal Time or UTC.
 
-
-
 Coordinated Universal Time or UTC is the primary time standard by which the world regulates clocks and time.
 UTC is used in many Internet and World Wide Web standards. The Network Time Protocol (NTP), designed to synchronise the clocks of computers over the Internet, transmits time information from the UTC system. If only milliseconds precision is needed, clients can obtain the current UTC from a number of official internet UTC servers. For sub-microsecond precision, clients can obtain the time from satellite signals.[^wiki-utc]
 
@@ -106,11 +104,22 @@ time = datetime.datetime(2023, 5, 14, 18, 55, tzinfo=berlin_tz)
 
 This code makes sure, that any conversion to UTC will produce the right result, independent of daylight time.
 
-## Relative vs. absolute times
+## Relative vs. absolute timestamp
 
-Some applications do not require the knowledge of the absolute time, a relative time (wrt start of the recording)
-is often enough, there we can use floating point arrays. Especially memory intensive applications use that approach,
-where it is easier to save the start time as timestamp and save the rest as an array of integers or floats.
+A relative timestamp represents the duration relative to the start of a recording or an event:
+
+```python
+# 4 relative timesteps
+relative_time_secs = [0.0, 0.01, 0.02, 0.03]  # s
+relative_time_nsecs = [0, 10, 20, 30]  # ms
+```
+
+This representation facilitates the comparison of multiple timeseries against each other.
+
+The relative representation can be used for represent high resolution (i.e. frequency) timestamps,
+where the interval range of the `int` datatype is not enough to reach a particular date.
+
+Another consideration is that many algorithm implementations require relative time starting with `0` as inputs.
 
 ## References
 
